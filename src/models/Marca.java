@@ -1,17 +1,18 @@
 package models;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Marca {
     //Variables
-    private int idMarca;
+    private int id;
     private String descricao;
     private Set<Modelo> modelos;
 
     //Constructor - Loaded and Empty
-    public Marca(int idMarca, String descricao, Set<Modelo> modelos) {
-        this.idMarca = idMarca;
+    public Marca(int id, String descricao, Set<Modelo> modelos) {
+        this.id = id;
         this.descricao = descricao;
         this.modelos = modelos;
     }
@@ -19,15 +20,15 @@ public class Marca {
     public Marca() { modelos = new HashSet<>(); }
 
     //Getters and Setters
-    public int getIdMarca() { return idMarca; }
+    public int getId() { return this.id; }
 
-    public void setIdMarca(int idMarca) { this.idMarca = idMarca; }
+    public void setId(int id) { this.id = id; }
 
-    public String getDescricao() { return descricao; }
+    public String getDescricao() { return this.descricao; }
 
     public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public Set<Modelo> getModelos() { return modelos; }
+    public Set<Modelo> getModelos() { return this.modelos; }
 
     public void setModelos(Set<Modelo> modelos) { this.modelos = modelos; }
 
@@ -36,6 +37,26 @@ public class Marca {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Marca{" + "id=" + idMarca + ", descricao=" + descricao + ", modelos=" + modelos + '}';
+        return "Marca{" + "id=" + id + ", descricao=" + descricao + ", modelos=" + modelos + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idMarca);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Marca other = (Marca) obj;
+        return Objects.equals(this.idMarca, other.idMarca);
     }
 }
