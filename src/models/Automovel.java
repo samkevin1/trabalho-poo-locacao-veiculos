@@ -10,17 +10,17 @@ public class Automovel {
     private String placa;
     private String renavam;
     private String chassi;
-    private float valor_locacao;
+    private float valorLocacao;
     private String cor;
-    private String tipo_combustivel;
-    private int model_idModelo;
+    private String tipoCombustivel;
+    private int idModelo;
     private Set<Locacao> locacoes;
 
     //Constructor - Loaded and only with locacao list
 
     public Automovel(int id, String placa, String renavam, String chassi,
-                     float valor_locacao, String cor, String tipo_combustivel,
-                     int model_idModelo, Set<Locacao> locacoes) {
+                     float valorLocacao, String cor, String tipoCombustivel,
+                     int idModelo, Set<Locacao> locacoes) {
         this.idAutomovel = id;
         this.placa = placa;
         this.renavam = renavam;
@@ -40,7 +40,7 @@ public class Automovel {
 
     public void setId(int id) { this.idAutomovel = id; }
 
-    public Set<Locacao> getLocacoes() { return locacoes; }
+    public Set<Locacao> getLocacoes() { return this.locacoes; }
 
     public void setLocacoes(Set<Locacao> locacoes) { this.locacoes = locacoes; }
 
@@ -52,25 +52,25 @@ public class Automovel {
 
     public void setRenavam(String renavam) { this.renavam = renavam; }
 
-    public String getChassi() { return chassi; }
+    public String getChassi() { return this.chassi; }
 
     public void setChassi(String chassi) { this.chassi = chassi; }
 
-    public float getValor_locacao() { return valor_locacao; }
+    public float getValorLocacao() { return this.valorLocacao; }
 
-    public void setValor_locacao(float valor_locacao) { this.valor_locacao = valor_locacao; }
+    public void setValorLocacao(float valor) { this.valorLocacao = valor; }
 
-    public String getCor() { return cor; }
+    public String getCor() { return this.cor; }
 
     public void setCor(String cor) { this.cor = cor; }
 
-    public String getTipo_combustivel() { return tipo_combustivel; }
+    public String getTipoCombustivel() { return this.tipoCombustivel; }
 
-    public void setTipo_combustivel(String tipo_combustivel) { this.tipo_combustivel = tipo_combustivel; }
+    public void setTipoCombustivel(String tipoCombustivel) { this.tipoCombustivel = tipoCombustivel; }
 
-    public int getModel_idModelo() { return model_idModelo; }
+    public int getIdModelo() { return this.idModelo; }
 
-    public void setModel_idModelo(int model_idModelo) { this.model_idModelo = model_idModelo; }
+    public void setIdModelo(int id) { this.idModelo = id; }
 
     //Methods
     public void adicionarLocacao(Locacao locacao){ locacoes.add(locacao); }
@@ -79,8 +79,8 @@ public class Automovel {
     @Override
     public String toString() {
         return "Automovel{" + "id=" + idAutomovel + ", placa=" + placa + ", renavam=" + renavam +
-                ", chassi="+ chassi + ", valor_locacao="+ valor_locacao + ", cor=" + cor +
-                ", tipo_combustivel=" + tipo_combustivel + ", model_idModelo=" + model_idModelo +
+                ", chassi="+ chassi + ", valor locacao="+ valorLocacao + ", cor=" + cor +
+                ", tipo combustivel=" + tipoCombustivel + ", idModelo=" + idModelo +
                 ", locacoes=" + locacoes + '}';
     }
 
