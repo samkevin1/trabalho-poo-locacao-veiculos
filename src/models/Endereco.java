@@ -4,36 +4,36 @@ import java.util.Objects;
 
 public class Endereco {
     //Variables
-    private int idEndereco;
+    private int id;
     private int cep;
     private String logradouro;
     private int numero;
     private String bairro;
     private String cidade;
     private String pais;
-    private int cliente_idCliente;
+    private int idCliente;
 
     //Constructor - Loaded and Empty
     public Endereco() {
     }
 
-    public Endereco(int idEndereco, int cep, String logradouro, int numero, String bairro,
-                    String cidade, String pais, int cliente_idCliente) {
-        this.idEndereco = idEndereco;
+    public Endereco(int id, int cep, String logradouro, int numero, String bairro,
+                    String cidade, String pais, int idCliente) {
+        this.id = id;
         this.cep = cep;
         this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
         this.cidade = cidade;
         this.pais = pais;
-        this.cliente_idCliente = cliente_idCliente;
+        this.idCliente = idCliente;
     }
 
     //Getters and Setters
 
-    public int getIdEndereco() { return idEndereco; }
+    public int getId() { return this.id; }
 
-    public void setIdEndereco(int idEndereco) { this.idEndereco = idEndereco; }
+    public void setId(int id) { this.id = id; }
 
     public int getCep() { return cep; }
 
@@ -67,9 +67,9 @@ public class Endereco {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Endereco{" + "id=" + idEndereco + ", cep=" + cep + ", logradouro=" + logradouro +
+        return "Endereco{" + "id=" + id + ", cep=" + cep + ", logradouro=" + logradouro +
                 ", numero="+ numero + ", bairro="+ bairro + ", cidade=" + cidade +
-                ", pais=" + pais + ", Cliente_idCliente=" + cliente_idCliente + '}';
+                ", pais=" + pais + ", idCliente=" + idCliente + '}';
     }
 
     @Override
