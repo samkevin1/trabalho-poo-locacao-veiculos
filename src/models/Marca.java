@@ -1,6 +1,7 @@
 package models;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Marca {
@@ -37,5 +38,25 @@ public class Marca {
     @Override
     public String toString() {
         return "Marca{" + "id=" + idMarca + ", descricao=" + descricao + ", modelos=" + modelos + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idMarca);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Marca other = (Marca) obj;
+        return Objects.equals(this.idMarca, other.idMarca);
     }
 }

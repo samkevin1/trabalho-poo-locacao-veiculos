@@ -1,6 +1,7 @@
 package models;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Cliente {
@@ -61,5 +62,25 @@ public class Cliente {
     public String toString() {
         return "Cliente{" + "id=" + idCliente + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf="+ cpf +
                 ", cnh="+ cnh + ", telefone=" + telefone + ", locacoes=" + locacoes + ", enderecos=" + enderecos + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idCliente, cpf);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        return this.cpf.equals(other.cpf) && this.idCliente == other.idCliente;
     }
 }

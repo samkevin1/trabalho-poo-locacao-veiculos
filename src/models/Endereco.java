@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Endereco {
     //Variables
     private int idEndereco;
@@ -68,5 +70,25 @@ public class Endereco {
         return "Endereco{" + "id=" + idEndereco + ", cep=" + cep + ", logradouro=" + logradouro +
                 ", numero="+ numero + ", bairro="+ bairro + ", cidade=" + cidade +
                 ", pais=" + pais + ", Cliente_idCliente=" + cliente_idCliente + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idEndereco);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Endereco other = (Endereco) obj;
+        return Objects.equals(this.idEndereco, other.idEndereco);
     }
 }
