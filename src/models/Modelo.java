@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class Modelo {
     //Variables
-    private int id;
+    private int idModelo;
     private String descricao;
     private int idMarca;
 
     //Constructor - Loaded and Empty
     public Modelo(int id, String descricao, int idMarca) {
-        this.id = id;
+        this.idModelo = id;
         this.descricao = descricao;
         this.idMarca = idMarca;
     }
@@ -19,9 +19,9 @@ public class Modelo {
     }
 
     //Getters and Setters
-    public int getId() { return this.id; }
+    public int getId() { return this.idModelo; }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) { this.idModelo = id; }
 
     public String getDescricao() { return this.descricao; }
 
@@ -35,7 +35,7 @@ public class Modelo {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Modelo{" + "id=" + id + ", descricao=" + descricao + ", Marca_idMarca=" + idMarca + '}';
+        return "Modelo{" + "id=" + idModelo + ", descricao=" + descricao + ", Marca_idMarca=" + idMarca + '}';
     }
 
     @Override
