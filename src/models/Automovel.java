@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Automovel {
     //Variables
-    private int idAutomovel;
+    private int id;
     private String placa;
     private String renavam;
     private String chassi;
@@ -21,7 +21,7 @@ public class Automovel {
     public Automovel(int id, String placa, String renavam, String chassi,
                      float valorLocacao, String cor, String tipoCombustivel,
                      int idModelo, Set<Locacao> locacoes) {
-        this.idAutomovel = id;
+        this.id = id;
         this.placa = placa;
         this.renavam = renavam;
         this.chassi = chassi;
@@ -36,9 +36,9 @@ public class Automovel {
 
     //Getters and setters
 
-    public int getId() { return idAutomovel; }
+    public int getId() { return id; }
 
-    public void setId(int id) { this.idAutomovel = id; }
+    public void setId(int id) { this.id = id; }
 
     public Set<Locacao> getLocacoes() { return this.locacoes; }
 
@@ -78,7 +78,7 @@ public class Automovel {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Automovel{" + "id=" + idAutomovel + ", placa=" + placa + ", renavam=" + renavam +
+        return "Automovel{" + "id=" + id + ", placa=" + placa + ", renavam=" + renavam +
                 ", chassi="+ chassi + ", valor locacao="+ valorLocacao + ", cor=" + cor +
                 ", tipo combustivel=" + tipoCombustivel + ", idModelo=" + idModelo +
                 ", locacoes=" + locacoes + '}';
