@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Modelo {
     //Variables
     private int idModelo;
@@ -34,5 +36,25 @@ public class Modelo {
     @Override
     public String toString() {
         return "Modelo{" + "id=" + idModelo + ", descricao=" + descricao + ", Marca_idMarca=" + marca_idMarca + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idModelo);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Modelo other = (Modelo) obj;
+        return Objects.equals(this.idModelo, other.idModelo);
     }
 }

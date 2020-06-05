@@ -1,6 +1,7 @@
 package models;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Locacao {
     //Variables
@@ -87,5 +88,25 @@ public class Locacao {
                 ", km="+ km + ", valor_calcao="+ valor_calcao + ", valor_km=" + valor_km + ", devolucao=" + devolucao +
                 ", bonus=" + bonus + ", valor_total=" + valor_total + ", Cliente_idCliente=" + cliente_idCliente +
                 ", Automovel_idAutomovel=" + automovel_idAutomovel +'}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idLocacao);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Locacao other = (Locacao) obj;
+        return Objects.equals(this.idLocacao, other.idLocacao);
     }
 }
