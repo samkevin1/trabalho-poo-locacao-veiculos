@@ -1,17 +1,18 @@
 package Models;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 public class Locacao {
     private int id;
-    private LocalDateTime dtLocacao;
-    private LocalDateTime dtDevolucao;
+    private Date dtLocacao;
+    private Date dtDevolucao;
     private float km;
     private float valorLocacao;
     private float valorKm;
     private float valorTotal;
-    private int devolucao;
+    private boolean devolvido;
     private float bonus;
     private int idCliente;
     private int idAutomovel;
@@ -20,8 +21,8 @@ public class Locacao {
     public Locacao() {
     }
 
-    public Locacao(int id, LocalDateTime dtLocacao,  LocalDateTime dtDevolucao, int km,
-                   float valorLocacao, float valorKm, float valorTotal, int devolucao, int bonus) {
+    public Locacao(int id, Date dtLocacao,  Date dtDevolucao, int km,
+                   float valorLocacao, float valorKm, float valorTotal, boolean devolvido, int bonus) {
         this.id = id;
         this.dtLocacao = dtLocacao;
         this.dtDevolucao = dtDevolucao;
@@ -29,7 +30,7 @@ public class Locacao {
         this.valorLocacao = valorLocacao;
         this.valorKm = valorKm;
         this.valorTotal = valorTotal;
-        this.devolucao = devolucao;
+        this.devolvido = devolvido;
         this.bonus = bonus;
     }
 
@@ -38,13 +39,13 @@ public class Locacao {
 
     public void setId(int id) { this.id = id; }
 
-    public LocalDateTime getDataLocacao() { return this.dtLocacao; }
+    public Date getDataLocacao() { return this.dtLocacao; }
 
-    public void setDataLocacao(LocalDateTime dtLocacao) { this.dtLocacao = dtLocacao; }
+    public void setDataLocacao(Date dtLocacao) { this.dtLocacao = dtLocacao; }
 
-    public LocalDateTime getDataDevolucao() { return dtDevolucao; }
+    public Date getDataDevolucao() { return dtDevolucao; }
 
-    public void setDataDevolucao(LocalDateTime dtDevolucao) { this.dtDevolucao = dtDevolucao; }
+    public void setDataDevolucao(Date dtDevolucao) { this.dtDevolucao = dtDevolucao; }
 
     public float getKm() { return this.km; }
 
@@ -62,9 +63,9 @@ public class Locacao {
 
     public void setValorTotal(float valor) { this.valorTotal = valor; }
 
-    public int getDevolucao() { return devolucao; }
+    public boolean getDevolvido() { return this.devolvido; }
 
-    public void setDevolucao(int devolucao) { this.devolucao = devolucao; }
+    public void setDevolvido(boolean devolvido) { this.devolvido = devolvido; }
 
     public float getBonus() { return this.bonus; }
 
