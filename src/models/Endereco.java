@@ -1,4 +1,4 @@
-package models;
+package Models;
 
 import java.util.Objects;
 
@@ -59,9 +59,9 @@ public class Endereco {
 
     public void setPais(String pais) { this.pais = pais; }
 
-    public int getCliente_idCliente() { return cliente_idCliente; }
+    public int getIdCliente() { return this.idCliente; }
 
-    public void setCliente_idCliente(int cliente_idCliente) { this.cliente_idCliente = cliente_idCliente; }
+    public void setIdCliente(int id) { this.idCliente = idCliente; }
 
     //Methods
     //toString should return an object similar to a JSON file
@@ -74,7 +74,7 @@ public class Endereco {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEndereco);
+        return Objects.hash(id);
     }
 
     @Override
@@ -89,6 +89,6 @@ public class Endereco {
             return false;
         }
         final Endereco other = (Endereco) obj;
-        return Objects.equals(this.idEndereco, other.idEndereco);
+        return Objects.equals(this.id, other.id);
     }
 }

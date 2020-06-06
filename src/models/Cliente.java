@@ -1,5 +1,4 @@
-package models;
-
+package Models;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -66,7 +65,7 @@ public class Cliente {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCliente, cpf);
+        return Objects.hash(id, cpf);
     }
 
     @Override
@@ -81,6 +80,6 @@ public class Cliente {
             return false;
         }
         final Cliente other = (Cliente) obj;
-        return this.cpf.equals(other.cpf) && this.idCliente == other.idCliente;
+        return this.cpf.equals(other.cpf) && this.id == other.id;
     }
 }

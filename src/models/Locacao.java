@@ -1,10 +1,9 @@
-package models;
+package Models;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Locacao {
-    //Variables
     private int id;
     private LocalDateTime dtLocacao;
     private LocalDateTime dtDevolucao;
@@ -28,14 +27,14 @@ public class Locacao {
         this.dtDevolucao = dtDevolucao;
         this.km = km;
         this.valorLocacao = valorLocacao;
-        this.valorKm = valorkm;
+        this.valorKm = valorKm;
         this.valorTotal = valorTotal;
         this.devolucao = devolucao;
         this.bonus = bonus;
     }
 
     //Getters and Setters
-    public int getId() { return idLocacao; }
+    public int getId() { return this.id; }
 
     public void setId(int id) { this.id = id; }
 
@@ -45,7 +44,7 @@ public class Locacao {
 
     public LocalDateTime getDataDevolucao() { return dtDevolucao; }
 
-    public void setDataDevolucao(LocalDateTime dtDevolucao) { this.dt_devolucao = dt_devolucao; }
+    public void setDataDevolucao(LocalDateTime dtDevolucao) { this.dtDevolucao = dtDevolucao; }
 
     public float getKm() { return this.km; }
 
@@ -83,7 +82,7 @@ public class Locacao {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idLocacao);
+        return Objects.hash(id);
     }
 
     @Override
@@ -98,6 +97,6 @@ public class Locacao {
             return false;
         }
         final Locacao other = (Locacao) obj;
-        return Objects.equals(this.idLocacao, other.idLocacao);
+        return Objects.equals(this.id, other.id);
     }
 }

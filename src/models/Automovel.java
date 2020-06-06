@@ -1,4 +1,4 @@
-package models;
+package Models;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -25,10 +25,10 @@ public class Automovel {
         this.placa = placa;
         this.renavam = renavam;
         this.chassi = chassi;
-        this.valor_locacao = valor_locacao;
+        this.valorLocacao = valorLocacao;
         this.cor = cor;
-        this.tipo_combustivel = tipo_combustivel;
-        this.model_idModelo = model_idModelo;
+        this.tipoCombustivel = tipoCombustivel;
+        this.idModelo = idModelo;
         this.locacoes = locacoes;
     }
 
@@ -86,7 +86,7 @@ public class Automovel {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idAutomovel);
+        return Objects.hash(id);
     }
 
     @Override
@@ -101,6 +101,6 @@ public class Automovel {
             return false;
         }
         final Automovel other = (Automovel) obj;
-        return Objects.equals(this.idAutomovel, other.idAutomovel);
+        return Objects.equals(this.id, other.id);
     }
 }

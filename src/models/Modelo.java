@@ -1,16 +1,16 @@
-package models;
+package Models;
 
 import java.util.Objects;
 
 public class Modelo {
     //Variables
-    private int idModelo;
+    private int id;
     private String descricao;
     private int idMarca;
 
     //Constructor - Loaded and Empty
     public Modelo(int id, String descricao, int idMarca) {
-        this.idModelo = id;
+        this.id = id;
         this.descricao = descricao;
         this.idMarca = idMarca;
     }
@@ -19,9 +19,9 @@ public class Modelo {
     }
 
     //Getters and Setters
-    public int getId() { return this.idModelo; }
+    public int getId() { return this.id; }
 
-    public void setId(int id) { this.idModelo = id; }
+    public void setId(int id) { this.id = id; }
 
     public String getDescricao() { return this.descricao; }
 
@@ -35,12 +35,12 @@ public class Modelo {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Modelo{" + "id=" + idModelo + ", descricao=" + descricao + ", Marca_idMarca=" + idMarca + '}';
+        return "Modelo{" + "id=" + id + ", descricao=" + descricao + ", Marca_idMarca=" + idMarca + '}';
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idModelo);
+        return Objects.hash(id);
     }
 
     @Override
@@ -55,6 +55,6 @@ public class Modelo {
             return false;
         }
         final Modelo other = (Modelo) obj;
-        return Objects.equals(this.idModelo, other.idModelo);
+        return Objects.equals(this.id, other.id);
     }
 }

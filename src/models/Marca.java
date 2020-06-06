@@ -1,4 +1,4 @@
-package models;
+package Models;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -42,7 +42,7 @@ public class Marca {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idMarca);
+        return Objects.hash(id);
     }
 
     @Override
@@ -57,6 +57,6 @@ public class Marca {
             return false;
         }
         final Marca other = (Marca) obj;
-        return Objects.equals(this.idMarca, other.idMarca);
+        return Objects.equals(this.id, other.id);
     }
 }
