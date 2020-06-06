@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Endereco {
     //Variables
     private int id;
-    private int cep;
+    private String cep;
     private String logradouro;
     private int numero;
     private String bairro;
@@ -17,7 +17,7 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(int id, int cep, String logradouro, int numero, String bairro,
+    public Endereco(int id, String cep, String logradouro, int numero, String bairro,
                     String cidade, String pais, int idCliente) {
         this.id = id;
         this.cep = cep;
@@ -35,9 +35,9 @@ public class Endereco {
 
     public void setId(int id) { this.id = id; }
 
-    public int getCep() { return cep; }
+    public String getCep() { return cep; }
 
-    public void setCep(int cep) { this.cep = cep; }
+    public void setCep(String cep) { this.cep = cep; }
 
     public String getLogradouro() { return logradouro; }
 
