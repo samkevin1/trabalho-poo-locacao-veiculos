@@ -8,9 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Locacao.jar" size="3871" download="eager" />
+    <jar href="Locacao.jar" size="20443" download="eager" />
   </resources>
-  <application-desc main-class="locacao.Locacao"  name="Locacao" >
+  <application-desc main-class="MainCore.Main"  name="Locacao" >
   </application-desc>
   <update check="always"/>
 </jnlp>
