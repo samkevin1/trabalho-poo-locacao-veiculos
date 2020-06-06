@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Locacao.jar" size="27110" download="eager" />
+    <jar href="Locacao.jar" size="47281" download="eager" />
   </resources>
   <application-desc main-class="MainCore.Main"  name="Locacao" >
   </application-desc>

@@ -7,14 +7,24 @@ import java.util.Set;
 public class Marca {
     //Variables
     private int id;
+    private String nome;
     private String descricao;
     private Set<Modelo> modelos;
 
     //Constructor - Loaded and Empty
-    public Marca(int id, String descricao, Set<Modelo> modelos) {
+    public Marca(int id, String nome, String descricao, Set<Modelo> modelos) {
         this.id = id;
         this.descricao = descricao;
         this.modelos = modelos;
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Marca() { modelos = new HashSet<>(); }
