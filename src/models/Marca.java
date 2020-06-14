@@ -19,6 +19,11 @@ public class Marca {
         this.nome = nome;
     }
 
+    public Marca(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+    
     public String getNome() {
         return nome;
     }

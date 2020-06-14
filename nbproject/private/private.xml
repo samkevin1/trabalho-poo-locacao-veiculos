@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/andre/Documents/UVV/POO/trabalho-poo-locacao-veiculos/src/Models/Automovel.java</file>
-            <file>file:/C:/Users/andre/Documents/UVV/POO/trabalho-poo-locacao-veiculos/src/Views/ViewPrincipal.java</file>
-            <file>file:/C:/Users/andre/Documents/UVV/POO/trabalho-poo-locacao-veiculos/src/Models/Marca.java</file>
-            <file>file:/C:/Users/andre/Documents/UVV/POO/trabalho-poo-locacao-veiculos/src/MainCore/Main.java</file>
+            <file>file:/C:/Users/andre/Documents/UVV/trabalho-poo-locacao-veiculos/src/Controllers/ClienteController.java</file>
+            <file>file:/C:/Users/andre/Documents/UVV/trabalho-poo-locacao-veiculos/src/Services/DatabaseConfig.java</file>
+            <file>file:/C:/Users/andre/Documents/UVV/trabalho-poo-locacao-veiculos/src/DAO/JDBC/ClienteJDBC.java</file>
+            <file>file:/C:/Users/andre/Documents/UVV/trabalho-poo-locacao-veiculos/src/Views/ViewPrincipal.java</file>
         </group>
     </open-files>
 </project-private>

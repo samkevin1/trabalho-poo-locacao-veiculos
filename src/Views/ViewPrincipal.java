@@ -1,6 +1,15 @@
 package Views;
 
+import Controllers.ClienteController;
+import Controllers.MarcaController;
+import Models.Cliente;
+import Models.Marca;
+import Utils.Alerta;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class ViewPrincipal extends javax.swing.JPanel {
 
@@ -149,6 +158,11 @@ public class ViewPrincipal extends javax.swing.JPanel {
         txtLabelMarca2.setText("Descrição da marca:");
 
         btnCadastrarMarca.setText("Cadastrar");
+        btnCadastrarMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarMarcaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -302,6 +316,11 @@ public class ViewPrincipal extends javax.swing.JPanel {
         });
 
         btnCadastrarCliente.setText("Cadastrar");
+        btnCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -900,6 +919,93 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private void inputRenavamAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRenavamAutomovelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputRenavamAutomovelActionPerformed
+
+    //cadastra uma nova marca
+    private void btnCadastrarMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarMarcaActionPerformed
+        MarcaController controller = null;
+        String nome = inputNomeMarca.getText(); 
+        String descricao = inputDescricaoMarca.getText();
+        
+        if(nome.length() < 1 || descricao.length() < 1) {
+            Alerta.display("Preencha todos os campos.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else {
+            if(nome.length() > 32) {
+                Alerta.display("Nome muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+            else if(descricao.length() > 32){
+                Alerta.display("Descrição muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    controller = new MarcaController();
+                     Marca marca = new Marca(nome, descricao);
+                    if(controller.salvar(marca)){
+                        Alerta.display("Marca cadastrada com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                        inputNomeMarca.setText("");
+                        inputDescricaoMarca.setText("");
+                    } else {
+                        Alerta.display("Ocorreu um erro ao tentar criar a marca.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                    } 
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                    Alerta.display("Ocorreu um erro ao tentar criar a marca.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                    Alerta.display("Ocorreu um erro ao tentar criar a marca.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                }
+               
+            }
+        }
+    }//GEN-LAST:event_btnCadastrarMarcaActionPerformed
+
+    //cadastra novo cliente
+    private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
+        ClienteController controller = null;
+        String nome = inputNomeCliente.getText();
+        String sobrenome = inputSobrenomeCliente.getText();
+        String cpf = inputCPFCliente.getText();
+        String cnh = inputCnhCliente.getText();
+        String telefone = inputTelefoneCliente.getText();
+        
+        if(nome.length() < 1 || sobrenome.length() < 1 || cpf.length() < 1 || cnh.length() < 1 || telefone.length() < 1){
+            Alerta.display("Preencha todos os campos!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+            if(nome.length() > 32) {
+                Alerta.display("Nome muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+            else if(sobrenome.length() > 32) {
+                Alerta.display("Sobrenome muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+            else if(cpf.length() > 16) {
+                Alerta.display("CPF muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+            else if(cnh.length() > 20) {
+                Alerta.display("CNH muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+            else if(telefone.length() > 16) {
+                Alerta.display("Telefone muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            } else {
+                try {
+                    controller = new ClienteController(); 
+                    Cliente cliente = new Cliente(nome, sobrenome, cpf, cnh, telefone);
+                    if(controller.salvar(cliente)) {
+                        Alerta.display("Cliente cadastrado com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                        inputNomeCliente.setText("");
+                        inputSobrenomeCliente.setText("");
+                        inputCPFCliente.setText("");
+                        inputCnhCliente.setText("");
+                        inputTelefoneCliente.setText("");
+                    }
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                    Alerta.display("Ocorreu um erro ao tentar cadastrar o cliente.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                    Alerta.display("Ocorreu um erro ao tentar cadastrar o cliente.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_btnCadastrarClienteActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
