@@ -16,7 +16,16 @@ public class Cliente {
 
     //Constructor - Loaded and Empty
     public Cliente() { locacoes = new HashSet<>(); enderecos = new HashSet<>(); }
-
+    
+    public Cliente(String nome, String sobrenome, String cpf, String cnh, String telefone) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.cpf = cpf;
+        this.cnh = cnh;
+        this.telefone = telefone;
+        
+    }
+    
     public Cliente(int id, String nome, String sobrenome, String cpf, String cnh, String telefone) {
         this.id = id;
         this.nome = nome;

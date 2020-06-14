@@ -21,7 +21,7 @@ public class ClienteJDBC extends DatabaseService implements ClienteDAO{
     }
 
     @Override
-    public void cadastrar(Cliente cliente) {
+    public Boolean salvar(Cliente cliente) {
         PreparedStatement pstm = null;
         try {
             final String insertSqlString = "insert into "+Tabelas.cliente+" (nome, sobrenome, cpf, cnh, telefone) values(?)";
@@ -34,8 +34,10 @@ public class ClienteJDBC extends DatabaseService implements ClienteDAO{
             pstm.setString(5, cliente.getTelefone());
             pstm.executeUpdate();
             pstm.close();
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(AutomovelJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }  
     }
 
