@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/samue/Documents/UVV/POOII/Trabalho%20Interdisciplinar/trabalho-poo-locacao-veiculos/src/DAO/JDBC/EnderecoJDBC.java</file>
+            <file>file:/C:/Users/samue/Documents/UVV/POOII/Trabalho%20Interdisciplinar/trabalho-poo-locacao-veiculos/src/DAO/JDBC/MarcaJDBC.java</file>
+            <file>file:/C:/Users/samue/Documents/UVV/POOII/Trabalho%20Interdisciplinar/trabalho-poo-locacao-veiculos/src/MainCore/Main.java</file>
+            <file>file:/C:/Users/samue/Documents/UVV/POOII/Trabalho%20Interdisciplinar/trabalho-poo-locacao-veiculos/src/DAO/JDBC/AutomovelJDBC.java</file>
+            <file>file:/C:/Users/samue/Documents/UVV/POOII/Trabalho%20Interdisciplinar/trabalho-poo-locacao-veiculos/src/Views/ViewPrincipal.java</file>
+            <file>file:/C:/Users/samue/Documents/UVV/POOII/Trabalho%20Interdisciplinar/trabalho-poo-locacao-veiculos/src/DAO/JDBC/LocacaoJDBC.java</file>
+            <file>file:/C:/Users/samue/Documents/UVV/POOII/Trabalho%20Interdisciplinar/trabalho-poo-locacao-veiculos/.gitignore</file>
+            <file>file:/C:/Users/samue/Documents/UVV/POOII/Trabalho%20Interdisciplinar/trabalho-poo-locacao-veiculos/src/DAO/JDBC/ClienteJDBC.java</file>
+=======
+            <file>file:/C:/Users/andre/Documents/UVV/trabalho-poo-locacao-veiculos/src/Controllers/ClienteController.java</file>
+            <file>file:/C:/Users/andre/Documents/UVV/trabalho-poo-locacao-veiculos/src/Services/DatabaseConfig.java</file>
+            <file>file:/C:/Users/andre/Documents/UVV/trabalho-poo-locacao-veiculos/src/DAO/JDBC/ClienteJDBC.java</file>
+            <file>file:/C:/Users/andre/Documents/UVV/trabalho-poo-locacao-veiculos/src/Views/ViewPrincipal.java</file>
+>>>>>>> 0d2d6449c4cb9e4a9cd052e1d851c170eca46849
+        </group>
+    </open-files>
+</project-private>

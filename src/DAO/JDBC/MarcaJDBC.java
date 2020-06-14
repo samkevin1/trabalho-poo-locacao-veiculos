@@ -21,11 +21,10 @@ public class MarcaJDBC extends DatabaseService implements MarcaDAO{
     public Boolean salvar(Marca marca) {
         PreparedStatement pstm = null;
         try {
-            final String insertSqlString = "insert into "+Tabelas.marca+" (nome, descricao) values(?)";
+            final String insertSqlString = "insert into "+Tabelas.marca+" ( descricao) values(?)";
             
             pstm = contexto.prepareStatement(insertSqlString);
-            pstm.setString(1, marca.getNome());
-            pstm.setString(2, marca.getDescricao());
+            pstm.setString(1, marca.getDescricao());
             pstm.executeUpdate();
             pstm.close();
             return true;
