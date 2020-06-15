@@ -80,7 +80,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
         inputIdMarcaModelo = new javax.swing.JTextField();
         txtLabelMarca1 = new javax.swing.JLabel();
         btnCadastrarModelo = new javax.swing.JButton();
-        inputMarcaModelo1 = new javax.swing.JTextField();
+        inputDescricaoModelo = new javax.swing.JTextField();
         txtLabelMarca8 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         automovelPanel = new javax.swing.JTabbedPane();
@@ -591,7 +591,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLabelMarca1)
-                            .addComponent(inputMarcaModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(inputDescricaoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inputIdMarcaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -607,7 +607,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
                     .addComponent(txtLabelMarca1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputMarcaModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputDescricaoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputIdMarcaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastrarModelo)
@@ -980,7 +980,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
         ModeloController controller;
         try {
             controller = new ModeloController();
-            String descricao = inputDescricaoMarca.getText();
+            String descricao = inputDescricaoModelo.getText();
             int idMarca = Integer.parseInt(inputIdMarcaModelo.getText());
             Modelo modelo = new Modelo(descricao, idMarca);
             if(controller.salvar(modelo)){
@@ -1001,7 +1001,30 @@ public class ViewPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCadastrarModeloActionPerformed
 
 //GEN-FIRST:event_btnCadastrarMarcaActionPerformed
- 
+    private void btnCadastrarMarcaActionPerformed(java.awt.event.ActionEvent evt) {  
+        MarcaController controller;
+        try {
+            controller = new MarcaController();
+            String descricao = inputDescricaoMarca.getText();
+            Marca marca = new Marca(descricao);
+            if(controller.salvar(marca)){
+                Alerta.display("Marca cadastrado com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                inputDescricaoMarca.setText("");
+                inputIdMarcaModelo.setText("");
+            } else {
+                Alerta.display("Ocorreu um erro ao tentar cadastrar a marca.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Alerta.display("Ocorreu um erro ao tentar cadastrar a marca.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Alerta.display("Ocorreu um erro ao tentar cadastrar o modelo.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        }
+    
+    }
+    
+    
 //GEN-LAST:event_btnCadastrarMarcaActionPerformed
 
     private void inputNomeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeMarcaActionPerformed
@@ -1092,11 +1115,11 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JTextField inputCnhCliente;
     private javax.swing.JTextField inputCorAutomovel1;
     private javax.swing.JTextField inputDescricaoMarca;
+    private javax.swing.JTextField inputDescricaoModelo;
     private javax.swing.JTextField inputIdClienteEndereco;
     private javax.swing.JTextField inputIdMarcaModelo;
     private javax.swing.JTextField inputIdModeloAutomovel;
     private javax.swing.JTextField inputLogradouroEndereco;
-    private javax.swing.JTextField inputMarcaModelo1;
     private javax.swing.JTextField inputNomeCliente;
     private javax.swing.JTextField inputNomeMarca;
     private javax.swing.JTextField inputNumeroEndereco;

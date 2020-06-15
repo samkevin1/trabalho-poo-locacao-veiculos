@@ -12,11 +12,8 @@ public class Marca {
     private Set<Modelo> modelos;
 
     //Constructor - Loaded and Empty
-    public Marca(int id, String nome, String descricao, Set<Modelo> modelos) {
-        this.id = id;
+    public Marca(String descricao) {
         this.descricao = descricao;
-        this.modelos = modelos;
-        this.nome = nome;
     }
 
     public Marca(String nome, String descricao) {
