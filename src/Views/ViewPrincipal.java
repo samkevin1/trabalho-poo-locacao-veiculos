@@ -1390,7 +1390,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
                     formatedAutomoveis.add(automovel.toString());
                 });
                 
-                Alerta.display(formatedAutomoveis, Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                Alerta.displayList(formatedAutomoveis, Alerta.tituloSucesso, JOptionPane.OK_OPTION);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {

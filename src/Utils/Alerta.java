@@ -1,5 +1,6 @@
 package Utils;
 
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Alerta {
@@ -8,5 +9,9 @@ public class Alerta {
     
     public static void display(String mensagem, String titulo, int tipo ) {
         JOptionPane.showMessageDialog(null, mensagem, titulo, tipo);
+    }
+    
+    public static void displayList(List lista, String titulo, int tipo) {
+        JOptionPane.showMessageDialog(null, lista, titulo, tipo);
     }
 }
