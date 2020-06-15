@@ -45,11 +45,11 @@ public class Locacao {
 
     public void setId(int id) { this.id = id; }
 
-    public Date getDataLocacao() { return this.dtLocacao; }
+    public java.sql.Date getDataLocacao() { return this.dtLocacao; }
 
     public void setDataLocacao(java.sql.Date dtLocacao) { this.dtLocacao = dtLocacao; }
 
-    public Date getDataDevolucao() { return dtDevolucao; }
+    public java.sql.Date getDataDevolucao() { return dtDevolucao; }
 
     public void setDataDevolucao(java.sql.Date dtDevolucao) { this.dtDevolucao = dtDevolucao; }
 

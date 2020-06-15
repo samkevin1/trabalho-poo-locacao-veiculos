@@ -22,23 +22,17 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
     public Boolean salvar(Locacao locacao) {
         PreparedStatement pstm = null;
         try {
-            final String insertSqlString = "insert into "+Tabelas.locacao+" (dtLocacao, dtDevolucao, km, valorLocacao, valorKm, valorTotal, devolvido, bonus, idCliente, idAutomovel) values(?,?,?,?,?,?,?,?,?,?)";
-            Date dataLocacao = (Date) locacao.getDataLocacao();
-            java.sql.Date dateLocacaoFormatado =  new java.sql.Date (dataLocacao.getTime());
-            Date dataDevolucao = (Date) locacao.getDataDevolucao();
-            java.sql.Date dateDevolucaoFormatado =  new java.sql.Date (dataDevolucao.getTime());
+            final String insertSqlString = "insert into "+Tabelas.locacao+" ( km, valor_locacao, valor_km, valor_total, devolvido, bonus, Cliente_idCliente, Automovel_idAutomovel) values(?,?,?,?,?,?,?,?)";
 
             pstm = contexto.prepareStatement(insertSqlString);
-            pstm.setDate(1, dateLocacaoFormatado);
-            pstm.setDate(2, dateDevolucaoFormatado);
-            pstm.setFloat(3, locacao.getKm());
-            pstm.setFloat(4, locacao.getValorLocalcao());
-            pstm.setFloat(5, locacao.getValorKm());
-            pstm.setFloat(6, locacao.getValorTotal());
-            pstm.setBoolean(7, locacao.getDevolvido());
-            pstm.setFloat(8, locacao.getBonus());
-            pstm.setInt(9, locacao.getIdCliente());
-            pstm.setInt(10, locacao.getIdAutomovel());
+            pstm.setFloat(1, locacao.getKm());
+            pstm.setFloat(2, locacao.getValorLocalcao());
+            pstm.setFloat(3, locacao.getValorKm());
+            pstm.setFloat(4, locacao.getValorTotal());
+            pstm.setBoolean(5, locacao.getDevolvido());
+            pstm.setFloat(6, locacao.getBonus());
+            pstm.setInt(7, locacao.getIdCliente());
+            pstm.setInt(8, locacao.getIdAutomovel());
             pstm.executeUpdate();
             pstm.close();
             return true;
