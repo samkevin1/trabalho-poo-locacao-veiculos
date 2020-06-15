@@ -6,7 +6,10 @@ import Models.Locacao;
 import Services.DatabaseService;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +19,7 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
     }
 
     @Override
-    public void registrar(Locacao locacao) {
+    public Boolean salvar(Locacao locacao) {
         PreparedStatement pstm = null;
         try {
             final String insertSqlString = "insert into "+Tabelas.locacao+" (dtLocacao, dtDevolucao, km, valorLocacao, valorKm, valorTotal, devolvido, bonus, idCliente, idAutomovel) values(?)";
@@ -34,8 +37,10 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
             pstm.setInt(10, locacao.getIdAutomovel());
             pstm.executeUpdate();
             pstm.close();
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(AutomovelJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         } 
     }
 
@@ -46,6 +51,25 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
 
     @Override
     public List<Locacao> obterTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List locacoes = new ArrayList<Locacao>();
+        
+        try {
+            Statement stmt = contexto.createStatement();
+            ResultSet rs;
+            final String sqlString = "SELECT * from "+Tabelas.locacao+"";
+            rs = stmt.executeQuery(sqlString);
+            while (rs.next()) {
+                int id = Integer.parseInt(rs.getString("id"));
+                float valorKm = Float.parseFloat(rs.getString("valorKm"));
+                float km = Float.parseFloat(rs.getString("km"));
+                Locacao locacao = new Locacao(id, valorKm, km);
+                locacoes.add(locacao);
+            }
+            return locacoes;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LocacaoJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 }

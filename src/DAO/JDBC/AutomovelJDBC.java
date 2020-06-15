@@ -45,15 +45,5 @@ public class AutomovelJDBC extends DatabaseService implements AutomovelDAO{
             
         }       
     }
-
-    @Override
-    public void editar(Automovel automovel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void remover(Automovel automovel) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+   
 }

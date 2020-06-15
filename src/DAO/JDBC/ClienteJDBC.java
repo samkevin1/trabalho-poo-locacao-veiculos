@@ -40,15 +40,5 @@ public class ClienteJDBC extends DatabaseService implements ClienteDAO{
             return false;
         }  
     }
-
-    @Override
-    public void editar(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void remover(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

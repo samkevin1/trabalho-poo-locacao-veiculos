@@ -3,16 +3,19 @@ package Views;
 import Controllers.AutomovelController;
 import Controllers.ClienteController;
 import Controllers.EnderecoController;
+import Controllers.LocacaoController;
 import Controllers.MarcaController;
 import Controllers.ModeloController;
 import Models.Automovel;
 import Models.Cliente;
 import Models.Endereco;
+import Models.Locacao;
 import Models.Marca;
 import Models.Modelo;
 import Utils.Alerta;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -75,6 +78,9 @@ public class ViewPrincipal extends javax.swing.JPanel {
         txtLabelNome13 = new javax.swing.JLabel();
         modelosPanel = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         inputIdMarcaModelo = new javax.swing.JTextField();
@@ -102,6 +108,28 @@ public class ViewPrincipal extends javax.swing.JPanel {
         txtLabelMarca7 = new javax.swing.JLabel();
         inputCorAutomovel1 = new javax.swing.JTextField();
         txtLabelMarca9 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        automovelPanel1 = new javax.swing.JTabbedPane();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        inputDtLocacao = new javax.swing.JTextField();
+        txtLabelNome14 = new javax.swing.JLabel();
+        inputValorKm = new javax.swing.JTextField();
+        txtLabelMarca10 = new javax.swing.JLabel();
+        btnCadastrarLocacao = new javax.swing.JButton();
+        inputValorLocacao = new javax.swing.JTextField();
+        txtLabelNome15 = new javax.swing.JLabel();
+        inputKmLocacao = new javax.swing.JTextField();
+        txtLabelMarca11 = new javax.swing.JLabel();
+        inputIdAutomovelLocacao = new javax.swing.JTextField();
+        txtLabelMarca12 = new javax.swing.JLabel();
+        inputBonusLocacao = new javax.swing.JTextField();
+        txtLabelMarca13 = new javax.swing.JLabel();
+        inputIdClienteLocacao = new javax.swing.JTextField();
+        txtLabelMarca14 = new javax.swing.JLabel();
+        inputDtDevolucaoLocacao = new javax.swing.JTextField();
+        txtLabelMarca15 = new javax.swing.JLabel();
 
         inputNomeMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -554,15 +582,36 @@ public class ViewPrincipal extends javax.swing.JPanel {
 
         panelPrincipal.addTab("Clientes", clientesPanel);
 
+        jLabel1.setText("Lista de modelos cadastrados");
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 499, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(jLabel1)
+                .addContainerGap(170, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 463, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         modelosPanel.addTab("Lista de modelos cadastrados", jPanel2);
@@ -797,6 +846,180 @@ public class ViewPrincipal extends javax.swing.JPanel {
         );
 
         panelPrincipal.addTab("Automóveis", jPanel11);
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 499, Short.MAX_VALUE)
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 463, Short.MAX_VALUE)
+        );
+
+        automovelPanel1.addTab("Locações", jPanel16);
+
+        inputDtLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputDtLocacaoActionPerformed(evt);
+            }
+        });
+
+        txtLabelNome14.setText("Data locação:");
+
+        txtLabelMarca10.setText("Valor km:");
+
+        btnCadastrarLocacao.setText("Cadastrar");
+        btnCadastrarLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarLocacaoActionPerformed(evt);
+            }
+        });
+
+        inputValorLocacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputValorLocacaoActionPerformed(evt);
+            }
+        });
+
+        txtLabelNome15.setText("Valor locação:");
+
+        txtLabelMarca11.setText("KM:");
+
+        txtLabelMarca12.setText("Id do automóvel:");
+
+        txtLabelMarca13.setText("Id do cliente:");
+
+        txtLabelMarca14.setText("Data de devolução:");
+
+        txtLabelMarca15.setText("Bônus R$:");
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addComponent(txtLabelMarca13, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(inputIdClienteLocacao, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inputValorKm, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inputDtLocacao, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
+                                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtLabelNome14, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtLabelMarca10, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(49, 49, 49)))
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputIdAutomovelLocacao, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(inputValorLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                            .addComponent(inputKmLocacao)
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtLabelMarca12, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLabelNome15, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLabelMarca11, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 69, Short.MAX_VALUE))))
+                    .addComponent(btnCadastrarLocacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputDtDevolucaoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLabelMarca14, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtLabelMarca15, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputBonusLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLabelNome14)
+                    .addComponent(txtLabelNome15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputDtLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputValorLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLabelMarca10)
+                    .addComponent(txtLabelMarca11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputValorKm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputKmLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLabelMarca12)
+                    .addComponent(txtLabelMarca13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputIdAutomovelLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputIdClienteLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLabelMarca14)
+                    .addComponent(txtLabelMarca15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputDtDevolucaoLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputBonusLocacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCadastrarLocacao)
+                .addGap(40, 40, 40))
+        );
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(144, Short.MAX_VALUE))
+        );
+
+        automovelPanel1.addTab("+ Inserir nova locação", jPanel17);
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 501, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel15Layout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(automovelPanel1)
+                    .addGap(0, 0, 0)))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 489, Short.MAX_VALUE)
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel15Layout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(automovelPanel1)
+                    .addGap(0, 0, 0)))
+        );
+
+        panelPrincipal.addTab("Locação", jPanel15);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -1095,18 +1318,61 @@ public class ViewPrincipal extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPlacaAutomovelActionPerformed
 
+    private void inputDtLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDtLocacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputDtLocacaoActionPerformed
+
+    //cadastra locacao
+    private void btnCadastrarLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarLocacaoActionPerformed
+        LocacaoController controller;
+        try {
+            controller = new LocacaoController();
+            Locacao locacao = new Locacao(new Date(),
+                    new Date(), Float.parseFloat(inputKmLocacao.getText()),
+                    Float.parseFloat(inputValorLocacao.getText()), Float.parseFloat(inputValorKm.getText()), 
+                    Float.parseFloat(inputBonusLocacao.getText()),
+                    Integer.parseInt(inputIdClienteLocacao.getText()), Integer.parseInt(inputIdAutomovelLocacao.getText())
+            );
+            
+            if(controller.salvar(locacao)) {
+                Alerta.display("Locação cadastrada com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                inputKmLocacao.setText("");
+                inputValorLocacao.setText("");
+                inputValorKm.setText("");
+                inputBonusLocacao.setText("");
+                inputIdClienteLocacao.setText("");
+                inputIdAutomovelLocacao.setText("");
+            } else {
+                Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCadastrarLocacaoActionPerformed
+
+    private void inputValorLocacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputValorLocacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputValorLocacaoActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane automovelPanel;
+    private javax.swing.JTabbedPane automovelPanel1;
     private javax.swing.JButton btnCadastrarAutomovel;
     private javax.swing.JButton btnCadastrarCliente;
     private javax.swing.JButton btnCadastrarEndereco;
+    private javax.swing.JButton btnCadastrarLocacao;
     private javax.swing.JButton btnCadastrarMarca;
     private javax.swing.JButton btnCadastrarModelo;
     private javax.swing.JPanel clientesPanel;
     private javax.swing.JPanel containerModelos2;
     private javax.swing.JTextField inputBairroEndereco;
+    private javax.swing.JTextField inputBonusLocacao;
     private javax.swing.JTextField inputCEPEndereco;
     private javax.swing.JTextField inputCPFCliente;
     private javax.swing.JTextField inputChassiAutomovel;
@@ -1116,9 +1382,14 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JTextField inputCorAutomovel1;
     private javax.swing.JTextField inputDescricaoMarca;
     private javax.swing.JTextField inputDescricaoModelo;
+    private javax.swing.JTextField inputDtDevolucaoLocacao;
+    private javax.swing.JTextField inputDtLocacao;
+    private javax.swing.JTextField inputIdAutomovelLocacao;
     private javax.swing.JTextField inputIdClienteEndereco;
+    private javax.swing.JTextField inputIdClienteLocacao;
     private javax.swing.JTextField inputIdMarcaModelo;
     private javax.swing.JTextField inputIdModeloAutomovel;
+    private javax.swing.JTextField inputKmLocacao;
     private javax.swing.JTextField inputLogradouroEndereco;
     private javax.swing.JTextField inputNomeCliente;
     private javax.swing.JTextField inputNomeMarca;
@@ -1129,15 +1400,23 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JTextField inputSobrenomeCliente;
     private javax.swing.JTextField inputTelefoneCliente;
     private javax.swing.JTextField inputTipoCombustivelAutomovel;
+    private javax.swing.JTextField inputValorKm;
+    private javax.swing.JTextField inputValorLocacao;
     private javax.swing.JTextField inputValorLocacaoAutomovel;
     private javax.swing.JTabbedPane inserirCliente;
     private javax.swing.JTabbedPane inserirMarca;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1146,6 +1425,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel marcasPanel;
     private javax.swing.JTabbedPane modelosPanel;
     private javax.swing.JTabbedPane panelPrincipal;
@@ -1153,6 +1433,12 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JLabel txtLabelCpf;
     private javax.swing.JLabel txtLabelCpf1;
     private javax.swing.JLabel txtLabelMarca1;
+    private javax.swing.JLabel txtLabelMarca10;
+    private javax.swing.JLabel txtLabelMarca11;
+    private javax.swing.JLabel txtLabelMarca12;
+    private javax.swing.JLabel txtLabelMarca13;
+    private javax.swing.JLabel txtLabelMarca14;
+    private javax.swing.JLabel txtLabelMarca15;
     private javax.swing.JLabel txtLabelMarca2;
     private javax.swing.JLabel txtLabelMarca3;
     private javax.swing.JLabel txtLabelMarca4;
@@ -1165,6 +1451,8 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JLabel txtLabelNome11;
     private javax.swing.JLabel txtLabelNome12;
     private javax.swing.JLabel txtLabelNome13;
+    private javax.swing.JLabel txtLabelNome14;
+    private javax.swing.JLabel txtLabelNome15;
     private javax.swing.JLabel txtLabelNome2;
     private javax.swing.JLabel txtLabelNome3;
     private javax.swing.JLabel txtLabelNome4;

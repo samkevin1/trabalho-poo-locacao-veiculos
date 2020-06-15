@@ -18,12 +18,18 @@ public class Locacao {
     private int idAutomovel;
 
     //Constructor - Loaded and empty
-    public Locacao() {
+    public Locacao(int id, float valorKm, float km) {
+        this.valorKm = valorKm;
+        this.km = km;
+        this.id = id;
+        this.valorLocacao = km * valorKm;
     }
 
-    public Locacao(int id, Date dtLocacao,  Date dtDevolucao, int km,
-                   float valorLocacao, float valorKm, float valorTotal, boolean devolvido, int bonus) {
+    public Locacao(Date dtLocacao, Date dtDevolucao, float km,
+                   float valorLocacao, float valorKm, float bonus, int idCliente, int idAutomovel) {
         this.id = id;
+        this.idAutomovel = idAutomovel;
+        this.idCliente = idCliente;
         this.dtLocacao = dtLocacao;
         this.dtDevolucao = dtDevolucao;
         this.km = km;

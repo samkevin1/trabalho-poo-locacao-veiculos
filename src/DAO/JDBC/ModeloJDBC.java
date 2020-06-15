@@ -13,13 +13,6 @@ public class ModeloJDBC extends DatabaseService implements ModeloDAO{
     public ModeloJDBC() throws ClassNotFoundException, SQLException {
     }
 
-    
-    
-    @Override
-    public Modelo obterPorChavePrimaria(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     public Boolean salvar(Modelo modelo) {
         PreparedStatement pstm = null;

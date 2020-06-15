@@ -12,12 +12,6 @@ import java.util.logging.Logger;
 public class MarcaJDBC extends DatabaseService implements MarcaDAO{ 
     public MarcaJDBC() throws ClassNotFoundException, SQLException {
     }
-
-    @Override
-    public Marca obterPorChavePrimaria(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-    
     public Boolean salvar(Marca marca) {
         PreparedStatement pstm = null;
         try {
