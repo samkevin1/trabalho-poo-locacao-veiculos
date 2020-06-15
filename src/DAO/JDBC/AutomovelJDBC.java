@@ -21,19 +21,19 @@ public class AutomovelJDBC extends DatabaseService implements AutomovelDAO{
     }
     
     @Override
-    public List<Automovel> consultar(String nome) {
+    public List<Automovel> consultar(String placa) {
         List automoveis = new ArrayList<Automovel>();
         try {
             Statement stmt = contexto.createStatement();
             ResultSet rs;
-            final String sqlString = "SELECT * from "+Tabelas.locacao+" where nome='"+nome+"'";
+            final String sqlString = "SELECT * from "+Tabelas.locacao+" where placa='"+placa+"'";
             rs = stmt.executeQuery(sqlString);
             while (rs.next()) {
                 int id = Integer.parseInt(rs.getString("id"));
-                String placa = rs.getString("placa");
+                String placaAutomovel = rs.getString("placa");
                 String chassi = rs.getString("chassi");
                 float valorLocacao = Float.parseFloat(rs.getString("valorLocacao"));
-                Automovel automovel = new Automovel(id, placa, chassi, valorLocacao);
+                Automovel automovel = new Automovel(id, placaAutomovel, chassi, valorLocacao);
                 automoveis.add(automovel);
             }
             return automoveis;

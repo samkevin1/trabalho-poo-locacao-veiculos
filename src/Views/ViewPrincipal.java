@@ -17,7 +17,9 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -80,9 +82,6 @@ public class ViewPrincipal extends javax.swing.JPanel {
         txtLabelNome13 = new javax.swing.JLabel();
         modelosPanel = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         inputIdMarcaModelo = new javax.swing.JTextField();
@@ -93,6 +92,9 @@ public class ViewPrincipal extends javax.swing.JPanel {
         jPanel11 = new javax.swing.JPanel();
         automovelPanel = new javax.swing.JTabbedPane();
         jPanel12 = new javax.swing.JPanel();
+        inputBuscaPorPlaca = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         inputPlacaAutomovel = new javax.swing.JTextField();
@@ -584,36 +586,15 @@ public class ViewPrincipal extends javax.swing.JPanel {
 
         panelPrincipal.addTab("Clientes", clientesPanel);
 
-        jLabel1.setText("Lista de modelos cadastrados");
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jList1);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(jLabel1)
-                .addContainerGap(170, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
+            .addGap(0, 499, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
+            .addGap(0, 463, Short.MAX_VALUE)
         );
 
         modelosPanel.addTab("Lista de modelos cadastrados", jPanel2);
@@ -685,15 +666,41 @@ public class ViewPrincipal extends javax.swing.JPanel {
 
         panelPrincipal.addTab("Modelos", modelosPanel);
 
+        jLabel1.setText("Buscar automóvel por placa:");
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 499, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(inputBuscaPorPlaca)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 325, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 463, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputBuscaPorPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(403, Short.MAX_VALUE))
         );
 
         automovelPanel.addTab("Lista de automóveis cadastrados", jPanel12);
@@ -1367,6 +1374,34 @@ public class ViewPrincipal extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputValorLocacaoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String placa = inputBuscaPorPlaca.getText();
+        
+        if(placa.length() < 1){
+            Alerta.display("Informe a placa do veículo.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else {
+            AutomovelController controller;
+            try {
+                controller = new AutomovelController();
+                List automoveis = controller.consultar(placa);
+                ArrayList<String> formatedAutomoveis = new ArrayList();
+                
+                automoveis.forEach(automovel -> {
+                    formatedAutomoveis.add(automovel.toString());
+                });
+                
+                Alerta.display(formatedAutomoveis, Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1382,6 +1417,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JPanel containerModelos2;
     private javax.swing.JTextField inputBairroEndereco;
     private javax.swing.JTextField inputBonusLocacao;
+    private javax.swing.JTextField inputBuscaPorPlaca;
     private javax.swing.JTextField inputCEPEndereco;
     private javax.swing.JTextField inputCPFCliente;
     private javax.swing.JTextField inputChassiAutomovel;
@@ -1414,8 +1450,8 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JTextField inputValorLocacaoAutomovel;
     private javax.swing.JTabbedPane inserirCliente;
     private javax.swing.JTabbedPane inserirMarca;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1434,7 +1470,6 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel marcasPanel;
     private javax.swing.JTabbedPane modelosPanel;
     private javax.swing.JTabbedPane panelPrincipal;
