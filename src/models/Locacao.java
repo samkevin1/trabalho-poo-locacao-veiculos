@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Locacao {
     private int id;
-    private Date dtLocacao;
-    private Date dtDevolucao;
+    private java.sql.Date dtLocacao;
+    private java.sql.Date dtDevolucao;
     private float km;
     private float valorLocacao;
     private float valorKm;
@@ -25,7 +25,7 @@ public class Locacao {
         this.valorLocacao = km * valorKm;
     }
 
-    public Locacao(Date dtLocacao, Date dtDevolucao, float km,
+    public Locacao(java.sql.Date dtLocacao, java.sql.Date dtDevolucao, float km,
                    float valorLocacao, float valorKm, float bonus, int idCliente, int idAutomovel) {
         this.id = id;
         this.idAutomovel = idAutomovel;
@@ -47,11 +47,11 @@ public class Locacao {
 
     public Date getDataLocacao() { return this.dtLocacao; }
 
-    public void setDataLocacao(Date dtLocacao) { this.dtLocacao = dtLocacao; }
+    public void setDataLocacao(java.sql.Date dtLocacao) { this.dtLocacao = dtLocacao; }
 
     public Date getDataDevolucao() { return dtDevolucao; }
 
-    public void setDataDevolucao(Date dtDevolucao) { this.dtDevolucao = dtDevolucao; }
+    public void setDataDevolucao(java.sql.Date dtDevolucao) { this.dtDevolucao = dtDevolucao; }
 
     public float getKm() { return this.km; }
 
