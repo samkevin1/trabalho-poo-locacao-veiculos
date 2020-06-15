@@ -15,6 +15,8 @@ import Models.Modelo;
 import Utils.Alerta;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -1327,24 +1329,31 @@ public class ViewPrincipal extends javax.swing.JPanel {
         LocacaoController controller;
         try {
             controller = new LocacaoController();
-            Locacao locacao = new Locacao(new Date(),
-                    new Date(), Float.parseFloat(inputKmLocacao.getText()),
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dtLocacao = sdf.parse(inputDtLocacao.getText());
+                Date dtDevolucao = sdf.parse(inputDtDevolucaoLocacao.getText());
+                Locacao locacao = new Locacao(dtLocacao,
+                    dtDevolucao, Float.parseFloat(inputKmLocacao.getText()),
                     Float.parseFloat(inputValorLocacao.getText()), Float.parseFloat(inputValorKm.getText()), 
                     Float.parseFloat(inputBonusLocacao.getText()),
                     Integer.parseInt(inputIdClienteLocacao.getText()), Integer.parseInt(inputIdAutomovelLocacao.getText())
-            );
+                );
             
-            if(controller.salvar(locacao)) {
-                Alerta.display("Locação cadastrada com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
-                inputKmLocacao.setText("");
-                inputValorLocacao.setText("");
-                inputValorKm.setText("");
-                inputBonusLocacao.setText("");
-                inputIdClienteLocacao.setText("");
-                inputIdAutomovelLocacao.setText("");
-            } else {
-                Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-            }
+                if(controller.salvar(locacao)) {
+                    Alerta.display("Locação cadastrada com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                    inputKmLocacao.setText("");
+                    inputValorLocacao.setText("");
+                    inputValorKm.setText("");
+                    inputBonusLocacao.setText("");
+                    inputIdClienteLocacao.setText("");
+                    inputIdAutomovelLocacao.setText("");
+                } else {
+                    Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (ParseException ex) {
+                Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);

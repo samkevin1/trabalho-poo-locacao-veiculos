@@ -16,7 +16,12 @@ public class Automovel {
     private int idModelo;
     private Set<Models.Locacao> locacoes;
 
-    //Constructor - Loaded and only with locacao list
+    public Automovel(int id, String placa, String chassi, float valorLocacao){
+        this.id = id;
+        this.placa = placa;
+        this.chassi = chassi;
+        this.valorLocacao = valorLocacao;
+    }
 
     public Automovel(String placa, String renavam, String chassi,
                      float valorLocacao, String cor, String tipoCombustivel,

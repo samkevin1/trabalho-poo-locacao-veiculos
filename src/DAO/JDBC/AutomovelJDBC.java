@@ -4,9 +4,13 @@ import DAO.Interfaces.AutomovelDAO;
 import DAO.Interfaces.AutomovelDAO;
 import DAO.Tabelas.Tabelas;
 import Models.Automovel;
+import Models.Locacao;
 import Services.DatabaseService;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +22,26 @@ public class AutomovelJDBC extends DatabaseService implements AutomovelDAO{
     
     @Override
     public List<Automovel> consultar(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List automoveis = new ArrayList<Automovel>();
+        try {
+            Statement stmt = contexto.createStatement();
+            ResultSet rs;
+            final String sqlString = "SELECT * from "+Tabelas.locacao+" where nome='"+nome+"'";
+            rs = stmt.executeQuery(sqlString);
+            while (rs.next()) {
+                int id = Integer.parseInt(rs.getString("id"));
+                String placa = rs.getString("placa");
+                String chassi = rs.getString("chassi");
+                float valorLocacao = Float.parseFloat(rs.getString("valorLocacao"));
+                Automovel automovel = new Automovel(id, placa, chassi, valorLocacao);
+                automoveis.add(automovel);
+            }
+            return automoveis;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LocacaoJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @Override
