@@ -23,10 +23,14 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
         PreparedStatement pstm = null;
         try {
             final String insertSqlString = "insert into "+Tabelas.locacao+" (dtLocacao, dtDevolucao, km, valorLocacao, valorKm, valorTotal, devolvido, bonus, idCliente, idAutomovel) values(?,?,?,?,?,?,?,?,?,?)";
-            
+            Date dataLocacao = (Date) locacao.getDataLocacao();
+            java.sql.Date dateLocacaoFormatado =  new java.sql.Date (dataLocacao.getTime());
+            Date dataDevolucao = (Date) locacao.getDataDevolucao();
+            java.sql.Date dateDevolucaoFormatado =  new java.sql.Date (dataDevolucao.getTime());
+
             pstm = contexto.prepareStatement(insertSqlString);
-            pstm.setDate(1, (Date) locacao.getDataLocacao());
-            pstm.setDate(2, (Date) locacao.getDataDevolucao());
+            pstm.setDate(1, dateLocacaoFormatado);
+            pstm.setDate(2, dateDevolucaoFormatado);
             pstm.setFloat(3, locacao.getKm());
             pstm.setFloat(4, locacao.getValorLocalcao());
             pstm.setFloat(5, locacao.getValorKm());
