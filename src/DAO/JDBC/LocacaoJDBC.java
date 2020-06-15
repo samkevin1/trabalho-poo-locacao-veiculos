@@ -19,7 +19,7 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
     public void registrar(Locacao locacao) {
         PreparedStatement pstm = null;
         try {
-            final String insertSqlString = "insert into "+Tabelas.locacao+" (dtLocacao, dtDevolucao, km, valorLocacao, valorKm, valorTotal, devolvido, bonus, idCliente, idAutomovel) values(?)";
+            final String insertSqlString = "insert into "+Tabelas.locacao+" (dtLocacao, dtDevolucao, km, valorLocacao, valorKm, valorTotal, devolvido, bonus, idCliente, idAutomovel) values(?,?,?,?,?,?,?,?,?,?)";
             
             pstm = contexto.prepareStatement(insertSqlString);
             pstm.setDate(1, (Date) locacao.getDataLocacao());

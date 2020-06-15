@@ -26,16 +26,16 @@ public class AutomovelJDBC extends DatabaseService implements AutomovelDAO{
         PreparedStatement pstm = null;
         
         try {
-            final String insertSqlString = "insert into "+Tabelas.automovel+" (placa, renavam, chassi, valorLocacao, cor, tipoCombustivel, idModelo) values(?)";
+            final String insertSqlString = "insert into "+Tabelas.automovel+" (placa, renavam, chassi, valor_locacao, cor, tipo_combustivel, Modelo_idModelo) values(?,?,?,?,?,?,?)";
             
             pstm = contexto.prepareStatement(insertSqlString);
             pstm.setString(1, automovel.getPlaca());
             pstm.setString(2, automovel.getRenavam());
             pstm.setString(3, automovel.getChassi());
             pstm.setDouble(4, automovel.getValorLocacao());
-            pstm.setString(4, automovel.getCor());
-            pstm.setString(5, automovel.getTipoCombustivel());
-            pstm.setLong(6, automovel.getIdModelo());
+            pstm.setString(5, automovel.getCor());
+            pstm.setString(6, automovel.getTipoCombustivel());
+            pstm.setLong(7, automovel.getIdModelo());
             pstm.executeUpdate();
             pstm.close();
             return true;
