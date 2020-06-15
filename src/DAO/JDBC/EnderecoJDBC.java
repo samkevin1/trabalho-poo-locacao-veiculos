@@ -18,7 +18,7 @@ public class EnderecoJDBC extends DatabaseService implements EnderecoDAO{
     public Boolean salvar(Endereco endereco) {
         PreparedStatement pstm = null;
         try {
-            final String insertSqlString = "insert into "+Tabelas.endereco+" (cep, logradouro, numero, bairro, cidade, pais, idCliente) values(?)";
+            final String insertSqlString = "insert into "+Tabelas.endereco+" (cep, logradouro, numero, bairro, cidade, pais, Cliente_idCliente) values(?,?,?,?,?,?,?)";
             
             pstm = contexto.prepareStatement(insertSqlString);
             pstm.setString(1, endereco.getCep());

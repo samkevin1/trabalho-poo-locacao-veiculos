@@ -24,7 +24,7 @@ public class ClienteJDBC extends DatabaseService implements ClienteDAO{
     public Boolean salvar(Cliente cliente) {
         PreparedStatement pstm = null;
         try {
-            final String insertSqlString = "insert into "+Tabelas.cliente+" (nome, sobrenome, cpf, cnh, telefone) values(?)";
+            final String insertSqlString = "insert into "+Tabelas.cliente+" (nome, sobrenome, cpf, cnh, telefone) values(?,?,?,?,?)";
             
             pstm = contexto.prepareStatement(insertSqlString);
             pstm.setString(1, cliente.getNome());

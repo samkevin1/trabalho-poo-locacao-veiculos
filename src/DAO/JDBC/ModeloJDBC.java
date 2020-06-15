@@ -17,7 +17,7 @@ public class ModeloJDBC extends DatabaseService implements ModeloDAO{
     public Boolean salvar(Modelo modelo) {
         PreparedStatement pstm = null;
         try {
-            final String insertSqlString = "insert into "+Tabelas.modelo+" (descricao, idMarca) values(?)";
+            final String insertSqlString = "insert into "+Tabelas.modelo+" (descricao, Marca_idMarca) values(?,?)";
             
             pstm = contexto.prepareStatement(insertSqlString);
             pstm.setString(1, modelo.getDescricao());

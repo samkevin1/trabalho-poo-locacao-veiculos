@@ -14,7 +14,7 @@ public class Automovel {
     private String cor;
     private String tipoCombustivel;
     private int idModelo;
-    private Set<Locacao> locacoes;
+    private Set<Models.Locacao> locacoes;
 
     //Constructor - Loaded and only with locacao list
 
@@ -38,9 +38,9 @@ public class Automovel {
 
     public void setId(int id) { this.id = id; }
 
-    public Set<Locacao> getLocacoes() { return this.locacoes; }
+    public Set<Models.Locacao> getLocacoes() { return this.locacoes; }
 
-    public void setLocacoes(Set<Locacao> locacoes) { this.locacoes = locacoes; }
+    public void setLocacoes(Set<Models.Locacao> locacoes) { this.locacoes = locacoes; }
 
     public String getPlaca() { return placa; }
 
@@ -71,7 +71,7 @@ public class Automovel {
     public void setIdModelo(int id) { this.idModelo = id; }
 
     //Methods
-    public void adicionarLocacao(Locacao locacao){ locacoes.add(locacao); }
+    public void adicionarLocacao(Models.Locacao locacao){ locacoes.add(locacao); }
 
     //toString should return an object similar to a JSON file
     @Override
