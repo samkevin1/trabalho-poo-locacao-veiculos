@@ -1331,8 +1331,8 @@ public class ViewPrincipal extends javax.swing.JPanel {
             controller = new LocacaoController();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             try {
-                Date dtLocacao = sdf.parse(inputDtLocacao.getText());
-                Date dtDevolucao = sdf.parse(inputDtDevolucaoLocacao.getText());
+                java.sql.Date dtLocacao = (java.sql.Date) sdf.parse(inputDtLocacao.getText());
+                java.sql.Date dtDevolucao = (java.sql.Date) sdf.parse(inputDtDevolucaoLocacao.getText());
                 Locacao locacao = new Locacao(dtLocacao,
                     dtDevolucao, Float.parseFloat(inputKmLocacao.getText()),
                     Float.parseFloat(inputValorLocacao.getText()), Float.parseFloat(inputValorKm.getText()), 
