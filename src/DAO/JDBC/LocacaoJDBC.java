@@ -45,8 +45,15 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
     }
 
     @Override
-    public void registrarDevolucao(int devolucao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void registrarDevolucao(int idLocacao) {
+        try {
+            Statement stmt = contexto.createStatement();
+            final String sqlString = "UPDATE "+Tabelas.locacao+" SET devolucao='true' where id='"+idLocacao+"'";
+            stmt.executeUpdate(sqlString); 
+        } catch (SQLException ex) {
+            Logger.getLogger(LocacaoJDBC.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     @Override
