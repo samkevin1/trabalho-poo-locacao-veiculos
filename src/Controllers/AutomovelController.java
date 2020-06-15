@@ -3,6 +3,7 @@ package Controllers;
 import DAO.JDBC.AutomovelJDBC;
 import Models.Automovel;
 import java.sql.SQLException;
+import java.util.List;
 
 public class AutomovelController {
     AutomovelJDBC contexto = null;
@@ -17,5 +18,9 @@ public class AutomovelController {
         } else {
             return false;
         }
+    }
+    
+    public List<Automovel> consultar(String placa){
+        return this.contexto.consultar(placa);
     }
 }
