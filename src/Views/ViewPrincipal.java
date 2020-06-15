@@ -1,9 +1,15 @@
 package Views;
 
+import Controllers.AutomovelController;
 import Controllers.ClienteController;
+import Controllers.EnderecoController;
 import Controllers.MarcaController;
+import Controllers.ModeloController;
+import Models.Automovel;
 import Models.Cliente;
+import Models.Endereco;
 import Models.Marca;
+import Models.Modelo;
 import Utils.Alerta;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -24,10 +30,6 @@ public class ViewPrincipal extends javax.swing.JPanel {
         panelPrincipal = new javax.swing.JTabbedPane();
         marcasPanel = new javax.swing.JPanel();
         inserirMarca = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
-        containerModelos2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabelaListaMarcas = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         inputNomeMarca = new javax.swing.JTextField();
@@ -35,11 +37,11 @@ public class ViewPrincipal extends javax.swing.JPanel {
         inputDescricaoMarca = new javax.swing.JTextField();
         txtLabelMarca2 = new javax.swing.JLabel();
         btnCadastrarMarca = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        containerModelos2 = new javax.swing.JPanel();
         clientesPanel = new javax.swing.JPanel();
         inserirCliente = new javax.swing.JTabbedPane();
         jPanel8 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tabelaListaClientes = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         inputNomeCliente = new javax.swing.JTextField();
@@ -69,22 +71,20 @@ public class ViewPrincipal extends javax.swing.JPanel {
         txtLabelNome10 = new javax.swing.JLabel();
         inputPaisEndereco = new javax.swing.JTextField();
         btnCadastrarEndereco = new javax.swing.JButton();
+        inputIdClienteEndereco = new javax.swing.JTextField();
+        txtLabelNome13 = new javax.swing.JLabel();
         modelosPanel = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaListaModelos = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        inputNomeModelo = new javax.swing.JTextField();
-        txtLabelNome1 = new javax.swing.JLabel();
-        inputMarcaModelo = new javax.swing.JTextField();
+        inputIdMarcaModelo = new javax.swing.JTextField();
         txtLabelMarca1 = new javax.swing.JLabel();
         btnCadastrarModelo = new javax.swing.JButton();
+        inputMarcaModelo1 = new javax.swing.JTextField();
+        txtLabelMarca8 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         automovelPanel = new javax.swing.JTabbedPane();
         jPanel12 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tabelaListaAutomoveis = new javax.swing.JTable();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         inputPlacaAutomovel = new javax.swing.JTextField();
@@ -98,54 +98,10 @@ public class ViewPrincipal extends javax.swing.JPanel {
         txtLabelMarca5 = new javax.swing.JLabel();
         inputTipoCombustivelAutomovel = new javax.swing.JTextField();
         txtLabelMarca6 = new javax.swing.JLabel();
-        inputCorAutomovel = new javax.swing.JTextField();
+        inputIdModeloAutomovel = new javax.swing.JTextField();
         txtLabelMarca7 = new javax.swing.JLabel();
-
-        clientesPanel.setBackground(new Color(255, 255, 240));
-
-        tabelaListaMarcas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "NOME", "DESCRIÇÃO"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tabelaListaMarcas);
-
-        javax.swing.GroupLayout containerModelos2Layout = new javax.swing.GroupLayout(containerModelos2);
-        containerModelos2.setLayout(containerModelos2Layout);
-        containerModelos2Layout.setHorizontalGroup(
-            containerModelos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
-        );
-        containerModelos2Layout.setVerticalGroup(
-            containerModelos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerModelos2Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 246, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(containerModelos2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(containerModelos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        inserirMarca.addTab("Lista de marcas cadastradas", jPanel3);
+        inputCorAutomovel1 = new javax.swing.JTextField();
+        txtLabelMarca9 = new javax.swing.JLabel();
 
         inputNomeMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +172,32 @@ public class ViewPrincipal extends javax.swing.JPanel {
 
         inserirMarca.addTab("+ Inserir nova marca", jPanel6);
 
+        clientesPanel.setBackground(new Color(255, 255, 240));
+
+        javax.swing.GroupLayout containerModelos2Layout = new javax.swing.GroupLayout(containerModelos2);
+        containerModelos2.setLayout(containerModelos2Layout);
+        containerModelos2Layout.setHorizontalGroup(
+            containerModelos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 499, Short.MAX_VALUE)
+        );
+        containerModelos2Layout.setVerticalGroup(
+            containerModelos2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 463, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(containerModelos2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(containerModelos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        inserirMarca.addTab("Lista de marcas cadastradas", jPanel3);
+
         javax.swing.GroupLayout marcasPanelLayout = new javax.swing.GroupLayout(marcasPanel);
         marcasPanel.setLayout(marcasPanelLayout);
         marcasPanelLayout.setHorizontalGroup(
@@ -241,42 +223,15 @@ public class ViewPrincipal extends javax.swing.JPanel {
 
         clientesPanel.setBackground(new Color(255, 255, 240));
 
-        tabelaListaClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "NOME", "SOBRENOME", "CPF", "CNH", "TELEFONE"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(tabelaListaClientes);
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+            .addGap(0, 499, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 246, Short.MAX_VALUE))
+            .addGap(0, 463, Short.MAX_VALUE)
         );
 
         inserirCliente.addTab("Lista de clientes cadastrados", jPanel8);
@@ -398,7 +353,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         inserirCliente.addTab("+ Inserir novo cliente", jPanel9);
@@ -460,6 +415,19 @@ public class ViewPrincipal extends javax.swing.JPanel {
         });
 
         btnCadastrarEndereco.setText("Cadastrar");
+        btnCadastrarEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarEnderecoActionPerformed(evt);
+            }
+        });
+
+        inputIdClienteEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputIdClienteEnderecoActionPerformed(evt);
+            }
+        });
+
+        txtLabelNome13.setText("ID do cliente:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -468,16 +436,6 @@ public class ViewPrincipal extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(inputClienteEndereco)
-                        .addGap(39, 39, 39)
-                        .addComponent(inputCEPEndereco)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtLabelNome4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(218, 218, 218)
-                        .addComponent(txtLabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(185, 185, 185))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtLabelNome6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(183, 183, 183)
@@ -488,23 +446,48 @@ public class ViewPrincipal extends javax.swing.JPanel {
                         .addGap(39, 39, 39)
                         .addComponent(inputNumeroEndereco)
                         .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(inputBairroEndereco)
-                        .addGap(39, 39, 39)
-                        .addComponent(inputCidadeEndereco)
+                    .addComponent(btnCadastrarEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtLabelNome8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(214, 214, 214)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inputIdClienteEndereco)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtLabelNome10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(171, 171, 171))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(inputBairroEndereco, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                                            .addComponent(inputPaisEndereco, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(39, 39, 39))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtLabelNome9, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                        .addGap(125, 125, 125)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtLabelNome13, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(118, 118, 118))
+                                    .addComponent(inputCidadeEndereco))))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtLabelNome8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(214, 214, 214)
-                        .addComponent(txtLabelNome10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(177, 177, 177))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtLabelNome9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(443, 443, 443))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(inputPaisEndereco)
-                        .addContainerGap())
-                    .addComponent(btnCadastrarEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(inputClienteEndereco)
+                                .addGap(39, 39, 39))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtLabelNome4, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                                .addGap(210, 210, 210)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtLabelNome5, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                                .addGap(193, 193, 193))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(inputCEPEndereco)
+                                .addContainerGap())))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -534,12 +517,16 @@ public class ViewPrincipal extends javax.swing.JPanel {
                     .addComponent(inputBairroEndereco)
                     .addComponent(inputCidadeEndereco))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLabelNome9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLabelNome9)
+                    .addComponent(txtLabelNome13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputPaisEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputPaisEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputIdClienteEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastrarEndereco)
-                .addGap(46, 46, 46))
+                .addGap(175, 175, 175))
         );
 
         inserirCliente.addTab("+ Inserir endereço cliente", jPanel1);
@@ -567,50 +554,29 @@ public class ViewPrincipal extends javax.swing.JPanel {
 
         panelPrincipal.addTab("Clientes", clientesPanel);
 
-        tabelaListaModelos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "NOME", "DESCRIÇÃO", "MARCA"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tabelaListaModelos);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+            .addGap(0, 499, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 246, Short.MAX_VALUE))
+            .addGap(0, 463, Short.MAX_VALUE)
         );
 
         modelosPanel.addTab("Lista de modelos cadastrados", jPanel2);
 
-        inputNomeModelo.addActionListener(new java.awt.event.ActionListener() {
+        txtLabelMarca1.setText("Descrição:");
+
+        btnCadastrarModelo.setText("Cadastrar");
+        btnCadastrarModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNomeModeloActionPerformed(evt);
+                btnCadastrarModeloActionPerformed(evt);
             }
         });
 
-        txtLabelNome1.setText("Nome:");
-
-        txtLabelMarca1.setText("Marca do modelo:");
-
-        btnCadastrarModelo.setText("Cadastrar");
+        txtLabelMarca8.setText("ID da marca:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -618,31 +584,34 @@ public class ViewPrincipal extends javax.swing.JPanel {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inputNomeModelo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(inputMarcaModelo)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnCadastrarModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLabelNome1)
-                            .addComponent(txtLabelMarca1))
-                        .addGap(0, 374, Short.MAX_VALUE))
-                    .addComponent(btnCadastrarModelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addComponent(txtLabelMarca1)
+                            .addComponent(inputMarcaModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inputIdMarcaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLabelMarca8))
+                        .addGap(14, 14, 14))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtLabelNome1)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLabelMarca8, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLabelMarca1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputNomeModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtLabelMarca1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inputMarcaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputMarcaModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputIdMarcaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastrarModelo)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -657,51 +626,23 @@ public class ViewPrincipal extends javax.swing.JPanel {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGap(0, 156, Short.MAX_VALUE))
         );
 
         modelosPanel.addTab("+ Inserir novo modelo", jPanel4);
 
         panelPrincipal.addTab("Modelos", modelosPanel);
 
-        tabelaListaAutomoveis.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "PLACA", "RENAVAM", "CHASSI", "V. LOCAÇÃO", "COR", "COMBUSTÍVEL"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane3.setViewportView(tabelaListaAutomoveis);
-
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+            .addGap(0, 499, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 246, Short.MAX_VALUE))
+            .addGap(0, 463, Short.MAX_VALUE)
         );
 
         automovelPanel.addTab("Lista de automóveis cadastrados", jPanel12);
@@ -717,6 +658,11 @@ public class ViewPrincipal extends javax.swing.JPanel {
         txtLabelMarca4.setText("CHASSI:");
 
         btnCadastrarAutomovel.setText("Cadastrar");
+        btnCadastrarAutomovel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarAutomovelActionPerformed(evt);
+            }
+        });
 
         inputRenavamAutomovel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -732,6 +678,8 @@ public class ViewPrincipal extends javax.swing.JPanel {
 
         txtLabelMarca7.setText("Cor do automóvel:");
 
+        txtLabelMarca9.setText("ID do modelo:");
+
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
@@ -742,7 +690,11 @@ public class ViewPrincipal extends javax.swing.JPanel {
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addComponent(txtLabelMarca7, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(inputCorAutomovel1, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(inputChassiAutomovel, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(inputPlacaAutomovel, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel14Layout.createSequentialGroup()
@@ -750,11 +702,8 @@ public class ViewPrincipal extends javax.swing.JPanel {
                                             .addComponent(txtLabelNome11, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtLabelMarca4, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(inputCorAutomovel))
-                                .addGap(49, 49, 49))
-                            .addGroup(jPanel14Layout.createSequentialGroup()
-                                .addComponent(txtLabelMarca7, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)))
+                                    .addComponent(inputIdModeloAutomovel))
+                                .addGap(49, 49, 49)))
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inputTipoCombustivelAutomovel, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(inputRenavamAutomovel, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
@@ -765,7 +714,10 @@ public class ViewPrincipal extends javax.swing.JPanel {
                                     .addComponent(txtLabelNome12, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtLabelMarca5, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 69, Short.MAX_VALUE))))
-                    .addComponent(btnCadastrarAutomovel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCadastrarAutomovel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(txtLabelMarca9, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -794,10 +746,14 @@ public class ViewPrincipal extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputTipoCombustivelAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputCorAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(inputCorAutomovel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtLabelMarca9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inputIdModeloAutomovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(btnCadastrarAutomovel)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -860,14 +816,6 @@ public class ViewPrincipal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputNomeModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeModeloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputNomeModeloActionPerformed
-
-    private void inputNomeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeMarcaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputNomeMarcaActionPerformed
-
     private void inputNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNomeClienteActionPerformed
@@ -911,51 +859,6 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private void inputPaisEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPaisEnderecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPaisEnderecoActionPerformed
-
-    private void inputPlacaAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPlacaAutomovelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputPlacaAutomovelActionPerformed
-
-    private void inputRenavamAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRenavamAutomovelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputRenavamAutomovelActionPerformed
-
-    //cadastra uma nova marca
-    private void btnCadastrarMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarMarcaActionPerformed
-        MarcaController controller = null;
-        String nome = inputNomeMarca.getText(); 
-        String descricao = inputDescricaoMarca.getText();
-        
-        if(nome.length() < 1 || descricao.length() < 1) {
-            Alerta.display("Preencha todos os campos.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-        } else {
-            if(nome.length() > 32) {
-                Alerta.display("Nome muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-            }
-            else if(descricao.length() > 32){
-                Alerta.display("Descrição muito grande!", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-            } else {
-                try {
-                    controller = new MarcaController();
-                     Marca marca = new Marca(nome, descricao);
-                    if(controller.salvar(marca)){
-                        Alerta.display("Marca cadastrada com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
-                        inputNomeMarca.setText("");
-                        inputDescricaoMarca.setText("");
-                    } else {
-                        Alerta.display("Ocorreu um erro ao tentar criar a marca.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-                    } 
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-                    Alerta.display("Ocorreu um erro ao tentar criar a marca.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-                } catch (SQLException ex) {
-                    Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-                    Alerta.display("Ocorreu um erro ao tentar criar a marca.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-                }
-               
-            }
-        }
-    }//GEN-LAST:event_btnCadastrarMarcaActionPerformed
 
     //cadastra novo cliente
     private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
@@ -1006,7 +909,170 @@ public class ViewPrincipal extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btnCadastrarClienteActionPerformed
-    
+
+    //cadastra novo endereco
+    private void btnCadastrarEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarEnderecoActionPerformed
+        EnderecoController controller;
+        try {
+            if(inputIdClienteEndereco.getText().length() < 1) {
+                Alerta.display("Informe o id do cliente para cadastrar um endereço.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            } 
+            else {
+                controller = new EnderecoController();
+                String cep = inputCEPEndereco.getText();
+                String logradouro = inputLogradouroEndereco.getText();
+                String bairro = inputBairroEndereco.getText();
+                String cidade = inputCidadeEndereco.getText();
+                String pais = inputPaisEndereco.getText();
+                int numero = 0;
+                int idCliente = 0;
+                try {
+                    numero = Integer.parseInt(inputNumeroEndereco.getText());
+                    idCliente = Integer.parseInt(inputIdClienteEndereco.getText());
+                } catch(NumberFormatException ex){
+                    Alerta.display("O campo número e idCliente só aceita valor numérico.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                }
+                
+                if(cidade.length() < 1) {
+                    Alerta.display("Informe a cidade do endereço.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                } else if(bairro.length() < 1) {
+                    Alerta.display("Informe o bairro do endereço.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                } else if(pais.length() < 1) {
+                    Alerta.display("Informe o país do endereço.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                } else if(bairro.length() > 32) {
+                    Alerta.display("Nome do bairro muito grande.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                } else if(cidade.length() > 32) {
+                    Alerta.display("Nome da cidade muito grande.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                } else if(pais.length() > 32) {
+                    Alerta.display("Nome do pais muito grande.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                } else if(idCliente != 0) {
+                    Endereco endereco = new Endereco(cep, logradouro, numero, bairro, cidade, pais, idCliente);
+                    if(controller.salvar(endereco)){
+                        Alerta.display("Endereco cadastrado com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                        inputCEPEndereco.setText("");
+                        inputLogradouroEndereco.setText("");
+                        inputNumeroEndereco.setText("");
+                        inputBairroEndereco.setText("");
+                        inputCidadeEndereco.setText("");
+                        inputPaisEndereco.setText("");
+                        inputIdClienteEndereco.setText("");
+                    } else {
+                        Alerta.display("Ocorreu um erro ao tentar cadastrar o endereco.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                    }
+                }           
+            }
+        } catch (ClassNotFoundException ex) {
+            Alerta.display("Ocorreu um erro ao tentar cadastrar o endereco.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Alerta.display("Ocorreu um erro ao tentar cadastrar o endereco.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnCadastrarEnderecoActionPerformed
+
+    private void inputIdClienteEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputIdClienteEnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputIdClienteEnderecoActionPerformed
+
+    //cadastra modelo
+    private void btnCadastrarModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarModeloActionPerformed
+        ModeloController controller;
+        try {
+            controller = new ModeloController();
+            String descricao = inputDescricaoMarca.getText();
+            int idMarca = Integer.parseInt(inputIdMarcaModelo.getText());
+            Modelo modelo = new Modelo(descricao, idMarca);
+            if(controller.salvar(modelo)){
+                Alerta.display("Modelo cadastrado com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                inputDescricaoMarca.setText("");
+                inputIdMarcaModelo.setText("");
+            } else {
+                Alerta.display("Ocorreu um erro ao tentar cadastrar o modelo.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Alerta.display("Ocorreu um erro ao tentar cadastrar o modelo.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            Alerta.display("Ocorreu um erro ao tentar cadastrar o modelo.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btnCadastrarModeloActionPerformed
+
+//GEN-FIRST:event_btnCadastrarMarcaActionPerformed
+ 
+//GEN-LAST:event_btnCadastrarMarcaActionPerformed
+
+    private void inputNomeMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNomeMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNomeMarcaActionPerformed
+
+    private void inputRenavamAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRenavamAutomovelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputRenavamAutomovelActionPerformed
+
+    //cadastrar automóvel
+    private void btnCadastrarAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarAutomovelActionPerformed
+        AutomovelController controller;
+        String placa = inputPlacaAutomovel.getText();
+        String renavam = inputRenavamAutomovel.getText();
+        String chassi = inputChassiAutomovel.getText();
+        float valorLocacao = Float.parseFloat(inputValorLocacaoAutomovel.getText());
+        String cor = inputCorAutomovel1.getText();
+        String tipoCombustivel = inputTipoCombustivelAutomovel.getText();
+        int idModelo = Integer.parseInt(inputIdModeloAutomovel.getText());
+
+        if(placa.length() < 1) {
+            Alerta.display("Informe a placa do automóvel.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else if(renavam.length() < 1) {
+            Alerta.display("Informe o renavam do automóvel.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else if(chassi.length() < 1) {
+            Alerta.display("Informe o chassi do automóvel.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else if(cor.length() < 1) {
+            Alerta.display("Informe a cor do automóvel.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else if(tipoCombustivel.length() < 1) {
+            Alerta.display("Informe o tipo do combustível do automóvel.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else if(tipoCombustivel.length() > 32) {
+            Alerta.display("Tipo do combustível do automóvel muito grande.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else if(placa.length() > 32) {
+            Alerta.display("Placa do automóvel muito grande.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else if(renavam.length() > 32) {
+            Alerta.display("Renavam do automóvel muito grande.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else if(chassi.length() > 32) {
+            Alerta.display("Chassi do automóvel muito grande.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+        } else {
+            Automovel automovel = new Automovel(placa, renavam, chassi, valorLocacao, cor, tipoCombustivel, idModelo);
+
+            try {
+                controller = new AutomovelController();
+                if(controller.salvar(automovel)) {
+                    Alerta.display("Automovel cadastrado com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                    inputPlacaAutomovel.setText("");
+                    inputRenavamAutomovel.setText("");
+                    inputChassiAutomovel.setText("");
+                    inputValorLocacaoAutomovel.setText("");
+                    inputCorAutomovel1.setText("");
+                    inputTipoCombustivelAutomovel.setText("");
+                    inputIdModeloAutomovel.setText("");
+                } else {
+                    Alerta.display("Ocorreu um erro ao tentar cadastrar o automóvel.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                Alerta.display("Ocorreu um erro ao tentar cadastrar o automóvel.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                Alerta.display("Ocorreu um erro ao tentar cadastrar o automóvel.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnCadastrarAutomovelActionPerformed
+
+    private void inputPlacaAutomovelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPlacaAutomovelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputPlacaAutomovelActionPerformed
+
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane automovelPanel;
@@ -1024,13 +1090,15 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JTextField inputCidadeEndereco;
     private javax.swing.JTextField inputClienteEndereco;
     private javax.swing.JTextField inputCnhCliente;
-    private javax.swing.JTextField inputCorAutomovel;
+    private javax.swing.JTextField inputCorAutomovel1;
     private javax.swing.JTextField inputDescricaoMarca;
+    private javax.swing.JTextField inputIdClienteEndereco;
+    private javax.swing.JTextField inputIdMarcaModelo;
+    private javax.swing.JTextField inputIdModeloAutomovel;
     private javax.swing.JTextField inputLogradouroEndereco;
-    private javax.swing.JTextField inputMarcaModelo;
+    private javax.swing.JTextField inputMarcaModelo1;
     private javax.swing.JTextField inputNomeCliente;
     private javax.swing.JTextField inputNomeMarca;
-    private javax.swing.JTextField inputNomeModelo;
     private javax.swing.JTextField inputNumeroEndereco;
     private javax.swing.JTextField inputPaisEndereco;
     private javax.swing.JTextField inputPlacaAutomovel;
@@ -1055,17 +1123,9 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPanel marcasPanel;
     private javax.swing.JTabbedPane modelosPanel;
     private javax.swing.JTabbedPane panelPrincipal;
-    private javax.swing.JTable tabelaListaAutomoveis;
-    private javax.swing.JTable tabelaListaClientes;
-    private javax.swing.JTable tabelaListaMarcas;
-    private javax.swing.JTable tabelaListaModelos;
     private javax.swing.JLabel txtLabelCnh;
     private javax.swing.JLabel txtLabelCpf;
     private javax.swing.JLabel txtLabelCpf1;
@@ -1076,10 +1136,12 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JLabel txtLabelMarca5;
     private javax.swing.JLabel txtLabelMarca6;
     private javax.swing.JLabel txtLabelMarca7;
-    private javax.swing.JLabel txtLabelNome1;
+    private javax.swing.JLabel txtLabelMarca8;
+    private javax.swing.JLabel txtLabelMarca9;
     private javax.swing.JLabel txtLabelNome10;
     private javax.swing.JLabel txtLabelNome11;
     private javax.swing.JLabel txtLabelNome12;
+    private javax.swing.JLabel txtLabelNome13;
     private javax.swing.JLabel txtLabelNome2;
     private javax.swing.JLabel txtLabelNome3;
     private javax.swing.JLabel txtLabelNome4;

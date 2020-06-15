@@ -22,7 +22,7 @@ public class AutomovelJDBC extends DatabaseService implements AutomovelDAO{
     }
 
     @Override
-    public void cadastrar(Automovel automovel) {
+    public Boolean salvar(Automovel automovel) {
         PreparedStatement pstm = null;
         
         try {
@@ -38,8 +38,11 @@ public class AutomovelJDBC extends DatabaseService implements AutomovelDAO{
             pstm.setLong(6, automovel.getIdModelo());
             pstm.executeUpdate();
             pstm.close();
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(AutomovelJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+            
         }       
     }
 

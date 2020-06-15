@@ -9,8 +9,7 @@ public class Modelo {
     private int idMarca;
 
     //Constructor - Loaded and Empty
-    public Modelo(int id, String descricao, int idMarca) {
-        this.id = id;
+    public Modelo(String descricao, int idMarca) {
         this.descricao = descricao;
         this.idMarca = idMarca;
     }

@@ -3,5 +3,5 @@ package DAO.Interfaces;
 import Models.Endereco;
 
 public interface EnderecoDAO {
-    public void cadastrar(Endereco endereco);
+    public Boolean salvar(Endereco endereco);
 }

@@ -15,7 +15,7 @@ public class EnderecoJDBC extends DatabaseService implements EnderecoDAO{
     }
     
     @Override
-    public void cadastrar(Endereco endereco) {
+    public Boolean salvar(Endereco endereco) {
         PreparedStatement pstm = null;
         try {
             final String insertSqlString = "insert into "+Tabelas.endereco+" (cep, logradouro, numero, bairro, cidade, pais, idCliente) values(?)";
@@ -30,8 +30,10 @@ public class EnderecoJDBC extends DatabaseService implements EnderecoDAO{
             pstm.setInt(7, endereco.getIdCliente());
             pstm.executeUpdate();
             pstm.close();
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(AutomovelJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }  
     }
     

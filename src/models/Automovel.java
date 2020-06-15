@@ -18,10 +18,9 @@ public class Automovel {
 
     //Constructor - Loaded and only with locacao list
 
-    public Automovel(int id, String placa, String renavam, String chassi,
+    public Automovel(String placa, String renavam, String chassi,
                      float valorLocacao, String cor, String tipoCombustivel,
-                     int idModelo, Set<Locacao> locacoes) {
-        this.id = id;
+                     int idModelo) {
         this.placa = placa;
         this.renavam = renavam;
         this.chassi = chassi;
@@ -29,7 +28,6 @@ public class Automovel {
         this.cor = cor;
         this.tipoCombustivel = tipoCombustivel;
         this.idModelo = idModelo;
-        this.locacoes = locacoes;
     }
 
     public Automovel() { locacoes = new HashSet<>(); }

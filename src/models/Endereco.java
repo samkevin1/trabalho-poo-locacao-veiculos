@@ -17,9 +17,8 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(int id, String cep, String logradouro, int numero, String bairro,
+    public Endereco(String cep, String logradouro, int numero, String bairro,
                     String cidade, String pais, int idCliente) {
-        this.id = id;
         this.cep = cep;
         this.logradouro = logradouro;
         this.numero = numero;
