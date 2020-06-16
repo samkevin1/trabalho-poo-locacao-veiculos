@@ -25,7 +25,7 @@ public class Locacao {
         this.valorLocacao = km * valorKm;
     }
 
-    public Locacao( float km, float valorLocacao, float valorKm, float bonus, int idCliente, int idAutomovel) {
+    public Locacao(float km, float valorLocacao, float valorKm, float bonus, int idCliente, int idAutomovel) {
         this.idAutomovel = idAutomovel;
         this.idCliente = idCliente;
         this.dtLocacao = new java.sql.Date(new Date().getTime());
@@ -34,11 +34,7 @@ public class Locacao {
         this.valorLocacao = valorLocacao;
         this.valorKm = valorKm;
         this.valorTotal = km * valorKm;
-<<<<<<< HEAD
         this.devolvido = false;
-=======
-        this.devolvido = devolvido;
->>>>>>> ba66a8a25b2ff123b8489e7ace66f1d9481b2e05
         this.bonus = bonus;
     }
 

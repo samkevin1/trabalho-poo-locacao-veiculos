@@ -1436,7 +1436,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
         LocacaoController controller;
         try {
             controller = new LocacaoController();
-<<<<<<< HEAD
+
             int km = Integer.parseInt(inputKmLocacao.getText());
             float valorLocacao = Float.parseFloat(inputValorLocacao.getText());
             float bonus = Float.parseFloat(inputBonusLocacao.getText());
@@ -1457,29 +1457,6 @@ public class ViewPrincipal extends javax.swing.JPanel {
             } else {
                 Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
             }
-=======
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-                Locacao locacao = new Locacao(Integer.parseInt(inputIdAutomovelLocacao.getText()),
-                        Integer.parseInt(inputIdClienteLocacao.getText()) , Integer.parseInt(inputKmLocacao.getText()),
-                        Float.parseFloat(inputValorLocacao.getText()), Float.parseFloat(inputValorKm.getText()), Float.parseFloat(inputValorTotalLocacao.getText()),
-                        Integer.parseInt(inputDevolvidoLocacao.getText()),
-                        Float.parseFloat(inputBonusLocacao.getText()))
-                );
-            
-                if(controller.salvar(locacao)) {
-                    Alerta.display("Locação cadastrada com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
-                    inputKmLocacao.setText("");
-                    inputValorLocacao.setText("");
-                    inputValorKm.setText("");
-                    inputBonusLocacao.setText("");
-                    inputIdClienteLocacao.setText("");
-                    inputIdAutomovelLocacao.setText("");
-                } else {
-                    Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-                }
->>>>>>> ba66a8a25b2ff123b8489e7ace66f1d9481b2e05
-
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
