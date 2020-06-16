@@ -34,7 +34,11 @@ public class Locacao {
         this.valorLocacao = valorLocacao;
         this.valorKm = valorKm;
         this.valorTotal = km * valorKm;
+<<<<<<< HEAD
         this.devolvido = false;
+=======
+        this.devolvido = devolvido;
+>>>>>>> ba66a8a25b2ff123b8489e7ace66f1d9481b2e05
         this.bonus = bonus;
     }
 
