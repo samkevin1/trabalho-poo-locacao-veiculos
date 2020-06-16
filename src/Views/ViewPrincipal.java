@@ -1436,14 +1436,12 @@ public class ViewPrincipal extends javax.swing.JPanel {
         try {
             controller = new LocacaoController();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                java.sql.Date dtLocacao = (java.sql.Date) sdf.parse(inputDtLocacao.getText());
-                java.sql.Date dtDevolucao = (java.sql.Date) sdf.parse(inputDtDevolucaoLocacao.getText());
-                Locacao locacao = new Locacao(dtLocacao,
-                    dtDevolucao, Float.parseFloat(inputKmLocacao.getText()),
-                    Float.parseFloat(inputValorLocacao.getText()), Float.parseFloat(inputValorKm.getText()), 
-                    Float.parseFloat(inputBonusLocacao.getText()),
-                    Integer.parseInt(inputIdClienteLocacao.getText()), Integer.parseInt(inputIdAutomovelLocacao.getText())
+
+                Locacao locacao = new Locacao(Integer.parseInt(inputIdAutomovelLocacao.getText()),
+                        Integer.parseInt(inputIdClienteLocacao.getText()) , Integer.parseInt(inputKmLocacao.getText()),
+                        Float.parseFloat(inputValorLocacao.getText()), Float.parseFloat(inputValorKm.getText()), Float.parseFloat(inputValorTotalLocacao.getText()),
+                        Integer.parseInt(inputDevolvidoLocacao.getText()),
+                        Float.parseFloat(inputBonusLocacao.getText()))
                 );
             
                 if(controller.salvar(locacao)) {
@@ -1457,9 +1455,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
                 } else {
                     Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
                 }
-            } catch (ParseException ex) {
-                Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            } 
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
@@ -1630,6 +1626,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JTextField inputIdMarcaModelo;
     private javax.swing.JTextField inputIdModeloAutomovel;
     private javax.swing.JTextField inputKmLocacao;
+    private javax.swing.JTextField inputValorTotalLocacao;
     private javax.swing.JTextField inputLogradouroEndereco;
     private javax.swing.JTextField inputNomeCliente;
     private javax.swing.JTextField inputNomeMarca;

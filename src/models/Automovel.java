@@ -93,7 +93,7 @@ public class Automovel {
     public String toString() {
         return "{" + "id:" + id + ", placa:" + placa + ", renavam:" + renavam +
                 ", chassi:"+ chassi + ", valor locacao:"+ valorLocacao + ", cor:" + cor +
-                ", tipo combustivel:" + tipoCombustivel + ", idModelo:" + idModelo +"}/n";
+                ", tipo combustivel:" + tipoCombustivel + ", idModelo:" + idModelo +"}\n";
     }
 
     @Override

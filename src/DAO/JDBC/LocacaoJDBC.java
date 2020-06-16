@@ -22,17 +22,19 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
     public Boolean salvar(Locacao locacao) {
         PreparedStatement pstm = null;
         try {
-            final String insertSqlString = "insert into "+Tabelas.locacao+" ( km, valor_locacao, valor_km, valor_total, devolvido, bonus, Cliente_idCliente, Automovel_idAutomovel) values(?,?,?,?,?,?,?,?)";
+            final String insertSqlString = "insert into "+Tabelas.locacao+" (dt_locacao, dt_devolucao, km, valor_calcao, valor_km, valor_total, devolucao, bonus, Cliente_idCliente, Automovel_idAutomovel) values(?,?,?,?,?,?,?,?,?,?)";
 
             pstm = contexto.prepareStatement(insertSqlString);
-            pstm.setFloat(1, locacao.getKm());
-            pstm.setFloat(2, locacao.getValorLocalcao());
-            pstm.setFloat(3, locacao.getValorKm());
-            pstm.setFloat(4, locacao.getValorTotal());
-            pstm.setBoolean(5, locacao.getDevolvido());
-            pstm.setFloat(6, locacao.getBonus());
-            pstm.setInt(7, locacao.getIdCliente());
-            pstm.setInt(8, locacao.getIdAutomovel());
+            pstm.setDate(1, locacao.getDataLocacao());
+            pstm.setDate(2, locacao.getDataDevolucao());
+            pstm.setFloat(3, locacao.getKm());
+            pstm.setFloat(4, locacao.getValorLocalcao());
+            pstm.setFloat(5, locacao.getValorKm());
+            pstm.setFloat(6, locacao.getValorTotal());
+            pstm.setBoolean(7, locacao.getDevolvido());
+            pstm.setFloat(8, locacao.getBonus());
+            pstm.setInt(9, locacao.getIdCliente());
+            pstm.setInt(10, locacao.getIdAutomovel());
             pstm.executeUpdate();
             pstm.close();
             return true;

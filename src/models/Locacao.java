@@ -25,17 +25,15 @@ public class Locacao {
         this.valorLocacao = km * valorKm;
     }
 
-    public Locacao(java.sql.Date dtLocacao, java.sql.Date dtDevolucao, float km,
-                   float valorLocacao, float valorKm, float bonus, int idCliente, int idAutomovel) {
-        this.id = id;
+    public Locacao( float km, float valorLocacao, float valorKm, float bonus, int idCliente, int idAutomovel) {
         this.idAutomovel = idAutomovel;
         this.idCliente = idCliente;
-        this.dtLocacao = dtLocacao;
-        this.dtDevolucao = dtDevolucao;
+        this.dtLocacao = new java.sql.Date(new Date().getTime());
+        this.dtDevolucao = new java.sql.Date(new Date().getTime());
         this.km = km;
         this.valorLocacao = valorLocacao;
         this.valorKm = valorKm;
-        this.valorTotal = valorTotal;
+        this.valorTotal = km * valorKm;
         this.devolvido = devolvido;
         this.bonus = bonus;
     }
@@ -91,7 +89,7 @@ public class Locacao {
     public String toString() {
         return "Locacao{" + "id=" + id + ", dt_locacao=" + dtLocacao + ", dt_devolucao=" + dtDevolucao + ", km="+ km +
                 ", valor_km="+ valorKm + ", devolucao=" + devolvido + ", bonus=" + bonus + ", valor_total=" + valorTotal +
-                ", idCliente=" + idCliente +  ", idAutomovel=" + idAutomovel + '}';
+                ", idCliente=" + idCliente +  ", idAutomovel=" + idAutomovel + "}\n";
     }
 
     @Override

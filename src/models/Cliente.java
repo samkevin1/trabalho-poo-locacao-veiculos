@@ -76,7 +76,7 @@ public class Cliente {
     @Override
     public String toString() {
         return "{" +"id:" + id + ", nome:" + nome + ", sobrenome:" + sobrenome + ", cpf:"+ cpf +
-                ", cnh:"+ cnh + ", telefone:" + telefone+"}/n";
+                ", cnh:"+ cnh + ", telefone:" + telefone+"}\n";
     }
 
     @Override
