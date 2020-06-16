@@ -66,9 +66,9 @@ public class Endereco {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Endereco{" + "id=" + id + ", cep=" + cep + ", logradouro=" + logradouro +
-                ", numero="+ numero + ", bairro="+ bairro + ", cidade=" + cidade +
-                ", pais=" + pais + ", idCliente=" + idCliente + '}';
+        return "{" + "id:" + id + ", cep:" + cep + ", logradouro:" + logradouro +
+                ", numero:"+ numero + ", bairro:"+ bairro + ", cidade:" + cidade +
+                ", pais:" + pais + ", idCliente:" + idCliente + "}/n";
     }
 
     @Override
