@@ -22,7 +22,7 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
     public Boolean salvar(Locacao locacao) {
         PreparedStatement pstm = null;
         try {
-            final String insertSqlString = "insert into "+Tabelas.locacao+" ( km, valor_locacao, valor_km, valor_total, devolvido, bonus, Cliente_idCliente, Automovel_idAutomovel) values(?,?,?,?,?,?,?,?)";
+            final String insertSqlString = "insert into "+Tabelas.locacao+" (km, valor_locacao, valor_km, valor_total, devolvido, bonus, Cliente_idCliente, Automovel_idAutomovel) values(?,?,?,?,?,?,?,?)";
 
             pstm = contexto.prepareStatement(insertSqlString);
             pstm.setFloat(1, locacao.getKm());
