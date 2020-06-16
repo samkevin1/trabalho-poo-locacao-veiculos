@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface LocacaoDAO {
     public Boolean salvar(Locacao locacao);
-    public void registrarDevolucao(int idLocacao);
+    public Boolean registrarDevolucao(int idLocacao);
     public List<Locacao> obterTodos();
 }

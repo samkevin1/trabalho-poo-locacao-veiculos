@@ -11,7 +11,7 @@ public class Alerta {
         JOptionPane.showMessageDialog(null, mensagem, titulo, tipo);
     }
     
-    public static void displayList(List lista, String titulo, int tipo) {
-        JOptionPane.showMessageDialog(null, lista, titulo, tipo);
+    public static void displayList(List lista, String titulo) {
+        JOptionPane.showMessageDialog(null, lista);
     }
 }

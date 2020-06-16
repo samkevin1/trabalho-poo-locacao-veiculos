@@ -43,13 +43,15 @@ public class LocacaoJDBC extends DatabaseService implements LocacaoDAO{
     }
 
     @Override
-    public void registrarDevolucao(int idLocacao) {
+    public Boolean registrarDevolucao(int idLocacao) {
         try {
             Statement stmt = contexto.createStatement();
             final String sqlString = "UPDATE "+Tabelas.locacao+" SET devolucao='true' where id='"+idLocacao+"'";
             stmt.executeUpdate(sqlString); 
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(LocacaoJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
         
     }

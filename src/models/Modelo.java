@@ -14,7 +14,9 @@ public class Modelo {
         this.idMarca = idMarca;
     }
 
-    public Modelo() {
+    public Modelo(int id, String descricao) {
+        this.id = id;
+        this.descricao = descricao;
     }
 
     //Getters and Setters

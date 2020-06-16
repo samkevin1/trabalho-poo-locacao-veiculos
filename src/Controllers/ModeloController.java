@@ -3,6 +3,7 @@ package Controllers;
 import DAO.JDBC.ModeloJDBC;
 import Models.Modelo;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ModeloController {
     ModeloJDBC contexto = null;
@@ -17,5 +18,9 @@ public class ModeloController {
         } else {
             return false;
         }
+    }
+    
+    public List<Modelo> consultar(String descricao){
+        return this.contexto.consultar(descricao);
     }
 }
