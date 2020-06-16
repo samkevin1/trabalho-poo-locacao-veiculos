@@ -43,6 +43,10 @@ public class Automovel {
 
     public Automovel() { locacoes = new HashSet<>(); }
 
+    public Automovel(int id, String descricao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     //Getters and setters
 
     public int getId() { return id; }
@@ -87,10 +91,9 @@ public class Automovel {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Automovel{" + "id=" + id + ", placa=" + placa + ", renavam=" + renavam +
-                ", chassi="+ chassi + ", valor locacao="+ valorLocacao + ", cor=" + cor +
-                ", tipo combustivel=" + tipoCombustivel + ", idModelo=" + idModelo +
-                ", locacoes=" + locacoes + '}';
+        return "{" + "id:" + id + ", placa:" + placa + ", renavam:" + renavam +
+                ", chassi:"+ chassi + ", valor locacao:"+ valorLocacao + ", cor:" + cor +
+                ", tipo combustivel:" + tipoCombustivel + ", idModelo:" + idModelo +"}/n";
     }
 
     @Override

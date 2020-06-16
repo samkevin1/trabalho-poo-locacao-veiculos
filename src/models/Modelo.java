@@ -36,7 +36,7 @@ public class Modelo {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Modelo{" + "id=" + id + ", descricao=" + descricao + ", Marca_idMarca=" + idMarca + '}';
+        return "{" + "id:" + id + ", descricao:" + descricao + ", idMarca:" + idMarca + "}/n";
     }
 
     @Override

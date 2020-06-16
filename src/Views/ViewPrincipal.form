@@ -273,14 +273,19 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="inputBuscaCliente" min="-2" pref="376" max="-2" attributes="0"/>
-                              <EmptySpace pref="48" max="32767" attributes="0"/>
-                              <Component id="buttonBuscaCliente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="inputBuscaCliente" min="-2" pref="370" max="-2" attributes="0"/>
+                                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                                      <Component id="buttonBuscaCliente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -356,36 +361,43 @@
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="txtLabelNome3" max="32767" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="txtLabelCpf" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtLabelMarca3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtLabelCnh" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace pref="60" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
                                           <Component id="txtLabelCpf1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="inputTelefoneCliente" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="inputCPFCliente" pref="233" max="32767" attributes="0"/>
-                                              <Component id="inputNomeCliente" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="txtLabelNome3" pref="134" max="32767" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="inputNomeCliente" pref="224" max="32767" attributes="0"/>
+                                                          <Component id="inputCPFCliente" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="txtLabelCpf" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="inputSobrenomeCliente" max="32767" attributes="0"/>
-                                              <Component id="inputCnhCliente" pref="233" max="32767" attributes="0"/>
+                                              <Component id="inputCnhCliente" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  <Component id="inputSobrenomeCliente" min="-2" pref="229" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="txtLabelMarca3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtLabelCnh" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1062,7 +1074,6 @@
                                                           </Group>
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Component id="inputIdModeloAutomovel" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                               </Group>
@@ -1086,6 +1097,7 @@
                                           <Component id="txtLabelMarca9" min="-2" pref="134" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
+                                      <Component id="inputIdModeloAutomovel" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -1262,13 +1274,18 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="inputIdDevolucao" min="-2" pref="301" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="29" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="buttonBuscaLocacoes" max="32767" attributes="0"/>
-                                  <Component id="buttonRegistraDevolucao" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="inputIdDevolucao" min="-2" pref="301" max="-2" attributes="0"/>
+                                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="buttonBuscaLocacoes" max="32767" attributes="0"/>
+                                          <Component id="buttonRegistraDevolucao" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1281,7 +1298,7 @@
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="inputIdDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="inputIdDevolucao" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="buttonRegistraDevolucao" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -1394,13 +1411,16 @@
                                       <Component id="btnCadastrarLocacao" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="inputDtDevolucaoLocacao" alignment="0" min="-2" pref="213" max="-2" attributes="0"/>
-                                              <Component id="txtLabelMarca14" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="txtLabelMarca14" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="inputDtDevolucaoLocacao" min="-2" pref="219" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtLabelMarca15" min="-2" pref="134" max="-2" attributes="0"/>
-                                              <Component id="inputBonusLocacao" min="-2" pref="213" max="-2" attributes="0"/>
+                                              <Component id="inputBonusLocacao" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="txtLabelMarca15" min="-2" pref="134" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>

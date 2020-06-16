@@ -75,8 +75,8 @@ public class Cliente {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf="+ cpf +
-                ", cnh="+ cnh + ", telefone=" + telefone + ", locacoes=" + locacoes + ", enderecos=" + enderecos + '}';
+        return "{" +"id:" + id + ", nome:" + nome + ", sobrenome:" + sobrenome + ", cpf:"+ cpf +
+                ", cnh:"+ cnh + ", telefone:" + telefone+"}/n";
     }
 
     @Override

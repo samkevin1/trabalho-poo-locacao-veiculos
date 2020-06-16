@@ -49,7 +49,7 @@ public class Marca {
     //toString should return an object similar to a JSON file
     @Override
     public String toString() {
-        return "Marca{" + "id=" + id + ", descricao=" + descricao + ", modelos=" + modelos + '}';
+        return "{" + "id:" + id + ", descricao:" + descricao + "}/n";
     }
 
     @Override
