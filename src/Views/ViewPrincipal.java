@@ -14,6 +14,7 @@ import Models.Marca;
 import Models.Modelo;
 import Utils.Alerta;
 import java.awt.Color;
+import static java.lang.Integer.parseInt;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -1435,31 +1436,27 @@ public class ViewPrincipal extends javax.swing.JPanel {
         LocacaoController controller;
         try {
             controller = new LocacaoController();
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                java.sql.Date dtLocacao = (java.sql.Date) sdf.parse(inputDtLocacao.getText());
-                java.sql.Date dtDevolucao = (java.sql.Date) sdf.parse(inputDtDevolucaoLocacao.getText());
-                Locacao locacao = new Locacao(dtLocacao,
-                    dtDevolucao, Float.parseFloat(inputKmLocacao.getText()),
-                    Float.parseFloat(inputValorLocacao.getText()), Float.parseFloat(inputValorKm.getText()), 
-                    Float.parseFloat(inputBonusLocacao.getText()),
-                    Integer.parseInt(inputIdClienteLocacao.getText()), Integer.parseInt(inputIdAutomovelLocacao.getText())
-                );
+            int km = Integer.parseInt(inputKmLocacao.getText());
+            float valorLocacao = Float.parseFloat(inputValorLocacao.getText());
+            float bonus = Float.parseFloat(inputBonusLocacao.getText());
+            float valorKm = Float.parseFloat(inputValorKm.getText());
+            int idCliente = Integer.parseInt(inputIdClienteLocacao.getText());
+            int idAutomovel = Integer.parseInt(inputIdAutomovelLocacao.getText());
             
-                if(controller.salvar(locacao)) {
-                    Alerta.display("Locação cadastrada com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
-                    inputKmLocacao.setText("");
-                    inputValorLocacao.setText("");
-                    inputValorKm.setText("");
-                    inputBonusLocacao.setText("");
-                    inputIdClienteLocacao.setText("");
-                    inputIdAutomovelLocacao.setText("");
-                } else {
-                    Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (ParseException ex) {
-                Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            } 
+            Locacao locacao = new Locacao(km, valorLocacao, valorKm, bonus, idCliente, idAutomovel);
+
+            if(controller.salvar(locacao)) {
+                Alerta.display("Locação cadastrada com sucesso!", Alerta.tituloSucesso, JOptionPane.OK_OPTION);
+                inputKmLocacao.setText("");
+                inputValorLocacao.setText("");
+                inputValorKm.setText("");
+                inputBonusLocacao.setText("");
+                inputIdClienteLocacao.setText("");
+                inputIdAutomovelLocacao.setText("");
+            } else {
+                Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
+            }
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ViewPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             Alerta.display("Ocorreu um erro ao tentar cadastrar a locação.", Alerta.tituloError, JOptionPane.ERROR_MESSAGE);
@@ -1630,6 +1627,7 @@ public class ViewPrincipal extends javax.swing.JPanel {
     private javax.swing.JTextField inputIdMarcaModelo;
     private javax.swing.JTextField inputIdModeloAutomovel;
     private javax.swing.JTextField inputKmLocacao;
+    private javax.swing.JTextField inputValorTotalLocacao;
     private javax.swing.JTextField inputLogradouroEndereco;
     private javax.swing.JTextField inputNomeCliente;
     private javax.swing.JTextField inputNomeMarca;

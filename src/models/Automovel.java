@@ -16,16 +16,22 @@ public class Automovel {
     private int idModelo;
     private Set<Models.Locacao> locacoes;
 
-    public Automovel(int id, String placa, String chassi, float valorLocacao){
-        this.id = id;
-        this.placa = placa;
-        this.chassi = chassi;
-        this.valorLocacao = valorLocacao;
-    }
-
     public Automovel(String placa, String renavam, String chassi,
                      float valorLocacao, String cor, String tipoCombustivel,
                      int idModelo) {
+        this.placa = placa;
+        this.renavam = renavam;
+        this.chassi = chassi;
+        this.valorLocacao = valorLocacao;
+        this.cor = cor;
+        this.tipoCombustivel = tipoCombustivel;
+        this.idModelo = idModelo;
+    }
+
+    public Automovel(int id, String placa, String renavam, String chassi,
+                     float valorLocacao, String cor, String tipoCombustivel,
+                     int idModelo) {
+        this.id = id;
         this.placa = placa;
         this.renavam = renavam;
         this.chassi = chassi;
@@ -87,7 +93,7 @@ public class Automovel {
     public String toString() {
         return "{" + "id:" + id + ", placa:" + placa + ", renavam:" + renavam +
                 ", chassi:"+ chassi + ", valor locacao:"+ valorLocacao + ", cor:" + cor +
-                ", tipo combustivel:" + tipoCombustivel + ", idModelo:" + idModelo +"}/n";
+                ", tipo combustivel:" + tipoCombustivel + ", idModelo:" + idModelo +"}\n";
     }
 
     @Override

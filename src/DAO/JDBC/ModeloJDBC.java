@@ -45,7 +45,7 @@ public class ModeloJDBC extends DatabaseService implements ModeloDAO{
             final String sqlString = "SELECT * from "+Tabelas.modelo+" where descricao='"+descricao+"'";
             rs = stmt.executeQuery(sqlString);
             while (rs.next()) {
-                int id = Integer.parseInt(rs.getString("id"));
+                int id = Integer.parseInt(rs.getString("idModelo"));
                 String descricaoModelo = rs.getString("descricao");
                 Modelo modelo = new Modelo(id, descricaoModelo);
                 modelos.add(modelo);

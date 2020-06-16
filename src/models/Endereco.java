@@ -68,7 +68,7 @@ public class Endereco {
     public String toString() {
         return "{" + "id:" + id + ", cep:" + cep + ", logradouro:" + logradouro +
                 ", numero:"+ numero + ", bairro:"+ bairro + ", cidade:" + cidade +
-                ", pais:" + pais + ", idCliente:" + idCliente + "}/n";
+                ", pais:" + pais + ", idCliente:" + idCliente + "}\n";
     }
 
     @Override
