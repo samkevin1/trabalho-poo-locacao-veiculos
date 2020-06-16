@@ -88,6 +88,13 @@ public class Locacao {
     //Methods
 
     @Override
+    public String toString() {
+        return "Locacao{" + "id=" + id + ", dt_locacao=" + dtLocacao + ", dt_devolucao=" + dtDevolucao + ", km="+ km +
+                ", valor_km="+ valorKm + ", devolucao=" + devolvido + ", bonus=" + bonus + ", valor_total=" + valorTotal +
+                ", idCliente=" + idCliente +  ", idAutomovel=" + idAutomovel + '}';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(id);
     }

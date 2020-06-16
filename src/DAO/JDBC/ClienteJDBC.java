@@ -28,10 +28,13 @@ public class ClienteJDBC extends DatabaseService implements ClienteDAO{
             final String sqlString = "SELECT * from "+Tabelas.cliente+" where nome='"+nome+"'";
             rs = stmt.executeQuery(sqlString);
             while (rs.next()) {
-                int id = Integer.parseInt(rs.getString("id"));
+                int id = Integer.parseInt(rs.getString("idCliente"));
                 String nomeCliente = rs.getString("nome");
                 String sobrenome = rs.getString("sobrenome");
-                Cliente cliente = new Cliente(id, nomeCliente, sobrenome);
+                String cpf = rs.getString("cpf");
+                String cnh = rs.getString("cnh");
+                String telefone = rs.getString("telefone");
+                Cliente cliente = new Cliente(id, nomeCliente, sobrenome, cpf, cnh, telefone);
                 clientes.add(cliente);
             }
             return clientes;
